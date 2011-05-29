@@ -52,9 +52,9 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]'
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]'
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w'
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\W'
 fi
 unset color_prompt force_color_prompt
 
@@ -116,6 +116,37 @@ svnmod(){
 }
 
 calc(){ awk "BEGIN{ print $* }" ;}
+
+#Custom aliases
+#git
+alias ga='git add'
+alias gp='git push'
+alias gl='git log'
+alias gs='git status'
+alias gd='git diff'
+alias gc='git commit -m'
+alias gcm='git commit -m'
+alias gb='git branch'
+alias go='git checkout'
+alias gra='git remote add'
+alias grr='git remote rm'
+alias gpu='git pull'
+alias gcl='git clone'
+
+# Rails
+alias r="rails"
+alias ra="rake"
+alias rmig='rake db:migrate'
+alias rca='rake db:create:all'
+alias rda='rake db:drop:all'
+alias rdball='rake db:drop:all && rake db:create:all && rake db:migrate && rake db:seed && rake db:test:prepare'
+
+#other
+alias v='vi'
+alias bash_reload='source ~/.bash_profile'
+
+
+
 
 fi
 export PATH=$HOME/bin:$PATH
