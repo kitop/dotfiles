@@ -7,6 +7,16 @@
 #[ -z "$PS1" ] && return
 if [[ -n $PS1 ]] ; then
 
+_gemset() {
+  if [[ -z $GS_NAME ]]; then
+    echo ""
+  else
+    echo "$GS_NAME "
+  fi
+}
+
+
+
 # don't put duplicate lines in the history. See bash(1) for more options
 # don't overwrite GNU Midnight Commander's setting of `ignorespace'.
 export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
@@ -61,7 +71,8 @@ unset color_prompt force_color_prompt
 if [ "\$(type -t __git_ps1)" ]; then
 	PS1="$PS1\$(__git_ps1 '[%s]' )"
 fi
-PS1="$PS1\$ "
+PS1="$(_gemset)$PS1\$ "
+
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -77,9 +88,9 @@ esac
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-#if [ -f ~/.bash_aliases ]; then
-#    . ~/.bash_aliases
-#fi
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -116,37 +127,8 @@ svnmod(){
 }
 
 calc(){ awk "BEGIN{ print $* }" ;}
-
-#Custom aliases
-#git
-alias ga='git add'
-alias gp='git push'
-alias gl='git log'
-alias gs='git status'
-alias gd='git diff'
-alias gc='git commit -m'
-alias gcm='git commit -m'
-alias gb='git branch'
-alias go='git checkout'
-alias gra='git remote add'
-alias grr='git remote rm'
-alias gpu='git pull'
-alias gcl='git clone'
-
-# Rails
-alias r="rails"
-alias ra="rake"
-alias rmig='rake db:migrate'
-alias rca='rake db:create:all'
-alias rda='rake db:drop:all'
-alias rdball='rake db:drop:all && rake db:create:all && rake db:migrate && rake db:seed && rake db:test:prepare'
-
-#other
-alias v='vi'
-alias bash_reload='source ~/.bash_profile'
-
-
-
-
 fi
-export PATH=$HOME/bin:$PATH
+
+export PATH=./node_modules/.bin:$PATH
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
