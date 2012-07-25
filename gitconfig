@@ -7,13 +7,26 @@
   meta = yellow bold
 [alias]
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  today = log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative
+  filelog = log -u  # show changes to a file
+  changelog = log --pretty=format:\" * %s %Cred(%cn)%Creset\" 
+  msgforsvn = log --pretty=format:\"%h\t%b\" 
+
 	co = checkout
   st = status -sb
 	update = add -u
   unstage = reset HEAD
   new = ls-files --others --exclude-standard
   added = diff --cached --name-only
-  today = log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative
+
+  # svn shortcuts
+  svnf = svn fetch # updates trunk and all branches; good to use when cherry-picking across branches
+  svnup = svn rebase
+  svnci = svn dcommit
+  # good for code reviews
+  # find by commit number
+  svnfind = !sh -c 'git msgforsvn | grep -e \\@$0 | cut -f 1'
+  svnshow = !sh -c 'git svnfind $0 | xargs -n1 git show '
 
 [help]
   autocorrect = 1
