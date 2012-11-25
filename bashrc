@@ -131,5 +131,11 @@ calc(){ awk "BEGIN{ print $* }" ;}
 fi
 
 export PATH=./node_modules/.bin:$PATH
+export PATH=~/bin:$PATH
+
+. ~/.nvm/nvm.sh
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
