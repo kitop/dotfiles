@@ -20,6 +20,14 @@ runtime macros/matchit.vim
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
+"set terminal title
+set title
+
+"no audible bell, just flash the screen
+set visualbell
+
+let mapleader = ","
+
 "persistent undo -  vi 7.3
 "set undofile
 "set undodir=~/.vim/undodir
@@ -74,7 +82,9 @@ map tt :tabedit<Space>
 "screen and faster testing
 map <F5> :ScreenShellVertical<CR>
 command -nargs=? -complete=shellcmd W  :w | :call ScreenShellSend("load '".@%."';")
-map <Leader>r :w<CR> :call ScreenShellSend("rspec ".@% . ':' . line('.'))<CR>
+map <Leader>r :w<CR> :call ScreenShellSend("rspec ".@% )<CR>
+map <Leader>lr :w<CR> :call ScreenShellSend("rspec ".@% . ':' . line('.'))<CR>
+map <Leader>allr :w<CR> :call ScreenShellSend("rspec")<CR>
 map <Leader>e :w<CR> :call ScreenShellSend("cucumber --format=pretty ".@% . ':' . line('.'))<CR>
 map <Leader>b :w<CR> :call ScreenShellSend("break ".@% . ':' . line('.'))<CR>
 
