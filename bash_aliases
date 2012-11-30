@@ -13,6 +13,7 @@ alias gra='git remote add'
 alias grr='git remote rm'
 alias gpu='git pull'
 alias gcl='git clone'
+alias amend="git commit --amend"
 
 # Rails
 alias ra="rake"
