@@ -30,6 +30,11 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 " use w!! to sudo :w  a file that we opened without su privs
 cmap w!! w !sudo tee % >/dev/null
 
+" screen plugin config. use tmux
+let g:ScreenImpl = 'Tmux'
+let g:ScreenShellInitialFocus = 'shell'
+let g:ScreenShellQuitOnVimExit = 1
+
 
 "
 " Visual {
@@ -65,6 +70,13 @@ au BufRead,BufNewFile *.txt call s:setupWrapping()
 map <c-right> :tabn<cr>
 map <c-left> :tabp<cr>
 map tt :tabedit<Space>
+
+"screen and faster testing
+map <F5> :ScreenShellVertical<CR>
+command -nargs=? -complete=shellcmd W  :w | :call ScreenShellSend("load '".@%."';")
+map <Leader>r :w<CR> :call ScreenShellSend("rspec ".@% . ':' . line('.'))<CR>
+map <Leader>e :w<CR> :call ScreenShellSend("cucumber --format=pretty ".@% . ':' . line('.'))<CR>
+map <Leader>b :w<CR> :call ScreenShellSend("break ".@% . ':' . line('.'))<CR>
 
 " pathogen
 call pathogen#infect()
