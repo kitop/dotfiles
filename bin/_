@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+set -e
+[ -n "$DEBUG" ] && set -x
+
+find_env_files() {
+  if [ -e "${HOME}/.env" ]; then
+    echo "${HOME}/.env"
+  fi
+
+  local root="$PWD"
+  local results=""
+
+  while [ -n "$root" ]; do
+    if [ -e "${root}/.env" ]; then
+      results="${root}/.env"$'\n'"$results"
+    fi
+    root="${root%/*}"
+  done
+
+  echo -n "$results"
+}
+
+sanitize_vars() {
+  sed \
+    -e "/^[ "$'\t'"]*[A-Za-z_][0-9A-Za-z_]*?\{0,1\}=/ !d" \
+    -e "s/'/'\\\\''/g" \
+    -e "s/\(\\\\\\\$\)/'\\1'/g" \
+    -e "s/\\\\\\\\/\\\\/g" \
+    -e "s/\(\\\$[0-9A-Za-z_][0-9A-Za-z_]*\)/'\\1'/g" \
+    -e "s/\(\\\${[0-9A-Za-z_][0-9A-Za-z_]*}\)/'\\1'/g" \
+    -e "s/^[ "$'\t'"]*\([A-Za-z_][0-9A-Za-z_]*?\{0,1\}\)=\(.*\)$/export \\1='\\2'/" \
+    -e "s/export \([A-Za-z_][0-9A-Za-z_]*\)?=/[ -n \"\$\\1\" ] || export \\1=/g"
+}
+
+sanitized_data() {
+  while read file; do
+    sanitize_vars < "$file"
+  done < <( find_env_files )
+}
+
+if [ -n "${1}" ]; then
+  eval $(sanitized_data)
+  exec "$@"
+else
+  sanitized_data
+fi
