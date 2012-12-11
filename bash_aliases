@@ -1,10 +1,12 @@
 #Custom aliases
 #git
+alias g='git'
 alias ga='git add'
 alias gp='git push'
 alias gl='git log'
 alias gst='git status -sb'
 alias gd='git diff'
+alias gdc='git diff --cached'
 alias gc='git commit'
 alias gcm='git commit -m'
 alias gb='git branch'
