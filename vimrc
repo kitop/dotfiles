@@ -21,8 +21,6 @@ runtime macros/matchit.vim
 "Store temp files in a central spot
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-"friendly paste mode
-set paste
 "set terminal title
 set title
 "no audible bell, just flash the screen
@@ -61,8 +59,10 @@ set smartcase
 " Indenting {
 "autoindent
 set autoindent
+set smarttab
 set tabstop=2
 set shiftwidth=2
+set shiftround
 set softtabstop=2
 set expandtab
 set list listchars=tab:\ \ ,trail:·
@@ -91,6 +91,17 @@ map <Leader>sb :w<CR> :call ScreenShellSend("break ".@% . ':' . line('.'))<CR>
 " testing without screen
 map <Leader>o :call RunCurrentLineInTest()<CR>
 map <Leader>t :call RunCurrentTest()<CR>
+
+" Edit another file in the same directory as the current file
+" uses expression to extract path from current file's path
+map <Leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
+map <Leader>s :split <C-R>=expand("%:p:h") . '/'<CR>
+map <Leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR>
+
+map <C-h> :nohl<cr>
+map <C-s> <esc>:w<CR>
+imap <C-s> <esc>:w<CR>
+map <C-t> <esc>:tabnew<CR>
 
 
 
