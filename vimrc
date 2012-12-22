@@ -25,6 +25,8 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set title
 "no audible bell, just flash the screen
 set visualbell
+" Toggle paste mode while in insert mode with F12
+set pastetoggle=<F12>
 
 let mapleader = ","
 
@@ -89,8 +91,8 @@ map <Leader>se :w<CR> :call ScreenShellSend("cucumber --format=pretty ".@% . ':'
 map <Leader>sb :w<CR> :call ScreenShellSend("break ".@% . ':' . line('.'))<CR>
 
 " testing without screen
-map <Leader>o :call RunCurrentLineInTest()<CR>
-map <Leader>t :call RunCurrentTest()<CR>
+map <Leader>o :w<CR> :call RunCurrentLineInTest()<CR>
+map <Leader>t :w<CR> :call RunCurrentTest()<CR>
 
 " Edit another file in the same directory as the current file
 " uses expression to extract path from current file's path
