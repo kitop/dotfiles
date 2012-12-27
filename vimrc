@@ -27,6 +27,8 @@ set title
 set visualbell
 " Toggle paste mode while in insert mode with F12
 set pastetoggle=<F12>
+" start the scrolling three lines before the border
+set scrolloff=3
 
 let mapleader = ","
 
