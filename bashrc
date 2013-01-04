@@ -134,7 +134,9 @@ fi
 export PATH=./node_modules/.bin:$PATH
 export PATH=~/.bin:$PATH
 
-. ~/.nvm/nvm.sh
+if [ -f ~/.nvm/nvm.sh ]; then
+    . ~/.nvm/nvm.sh
+fi
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
