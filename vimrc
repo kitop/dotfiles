@@ -15,7 +15,8 @@ set showcmd
 "indent depending on the filetype
 filetype plugin indent on
 "colorscheme desert
-colorscheme evening
+let g:solarized_termcolors=256
+colorscheme solarized
 "Enable extended % matching
 runtime macros/matchit.vim
 "Store temp files in a central spot
