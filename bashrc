@@ -123,6 +123,16 @@ source ~/.git-completion.sh
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 [[ -r $rvm_path/scripts/completion ]] && source $rvm_path/scripts/completion
 
+# rbenv
+if [ -d .rbenv ]; then
+  eval "$(rbenv init -)"
+fi
+
+# homebrew autocompletion
+if [ -x /usr/local/bin/brew ]; then
+  source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
+fi
+
 #CUSTOM FUNCTIONS
 svnmod(){
 	svn status | grep ^[MAD]
