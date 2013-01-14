@@ -122,9 +122,12 @@ source ~/.git-completion.sh
 
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 [[ -r $rvm_path/scripts/completion ]] && source $rvm_path/scripts/completion
+if [ -d ~/.rvm ]; then
+  PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+fi
 
 # rbenv
-if [ -d .rbenv ]; then
+if [ -d ~/.rbenv ]; then
   eval "$(rbenv init -)"
 fi
 
@@ -151,8 +154,6 @@ export PATH=~/.bin:$PATH
 if [ -f ~/.nvm/nvm.sh ]; then
     . ~/.nvm/nvm.sh
 fi
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
