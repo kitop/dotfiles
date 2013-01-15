@@ -74,6 +74,9 @@ au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=r
 au BufRead,BufNewFile *.rl set ft=ragel
 au BufRead,BufNewFile *.txt call s:setupWrapping()
 
+" Remove trailing whitespace on save for ruby files.
+au BufWritePre *.rb :%s/\s\+$//e
+
 
 let mapleader = ","
 
