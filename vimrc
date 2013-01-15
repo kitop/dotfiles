@@ -33,12 +33,18 @@ set scrolloff=3
 " Don't add the comment prefix when I hit enter or o/O on a comment line.
 set formatoptions-=or
 
+" Switch between the last two files
+nnoremap <leader><leader> <c-^>
 
 " Don't use arrow keys
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
+
+" Emacs-like beginning and end of line.
+imap <c-e> <c-o>$
+imap <c-a> <c-o>^
 
 " use w!! to sudo :w  a file that we opened without su privs
 cmap w!! w !sudo tee % >/dev/null
