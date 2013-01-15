@@ -83,6 +83,8 @@ map <C-left> :tabp<CR>
 map <C-h> :tabp<CR>
 map tt :tabedit<Space>
 
+map <leader>m :CommandT<CR>
+
 "screen and faster testing
 map <F5> :ScreenShellVertical<CR>
 map <Leader>sr :w<CR> :call ScreenShellSend("rspec ".@% )<CR>
