@@ -81,8 +81,10 @@ au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=r
 au BufRead,BufNewFile *.rl set ft=ragel
 au BufRead,BufNewFile *.txt call s:setupWrapping()
 
-map <c-right> :tabn<cr>
-map <c-left> :tabp<cr>
+map <C-right> :tabn<cr>
+map <C-l> :tabn<cr>
+map <C-left> :tabp<cr>
+map <C-h> :tabp<cr>
 map tt :tabedit<Space>
 
 "screen and faster testing
@@ -103,7 +105,6 @@ map <Leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
 map <Leader>s :split <C-R>=expand("%:p:h") . '/'<CR>
 map <Leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR>
 
-map <C-h> :nohl<cr>
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 map <C-t> <esc>:tabnew<CR>
