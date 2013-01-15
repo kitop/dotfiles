@@ -31,13 +31,6 @@ set pastetoggle=<F12>
 " start the scrolling three lines before the border
 set scrolloff=3
 
-let mapleader = ","
-
-"persistent undo -  vi 7.3
-"set undofile
-"set undodir=~/.vim/undodir
-"set undolevels = 1000 "maximum number of changes that can be undone
-"set undoreload = 10000 "maximum number lines to save for undo on a buffer reload
 
 
 " use w!! to sudo :w  a file that we opened without su privs
@@ -81,10 +74,13 @@ au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=r
 au BufRead,BufNewFile *.rl set ft=ragel
 au BufRead,BufNewFile *.txt call s:setupWrapping()
 
-map <C-right> :tabn<cr>
-map <C-l> :tabn<cr>
-map <C-left> :tabp<cr>
-map <C-h> :tabp<cr>
+
+let mapleader = ","
+
+map <C-right> :tabn<CR>
+map <C-l> :tabn<CR>
+map <C-left> :tabp<CR>
+map <C-h> :tabp<CR>
 map tt :tabedit<Space>
 
 "screen and faster testing
@@ -108,7 +104,6 @@ map <Leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR>
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 map <C-t> <esc>:tabnew<CR>
-
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
