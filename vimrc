@@ -30,6 +30,8 @@ set visualbell
 set pastetoggle=<F12>
 " start the scrolling three lines before the border
 set scrolloff=3
+" Don't add the comment prefix when I hit enter or o/O on a comment line.
+set formatoptions-=or
 
 
 
