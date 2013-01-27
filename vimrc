@@ -44,11 +44,6 @@ imap <c-a> <c-o>^
 " use w!! to sudo :w  a file that we opened without su privs
 cmap w!! w !sudo tee % >/dev/null
 
-" screen plugin config. use tmux
-let g:ScreenImpl = 'Tmux'
-let g:ScreenShellInitialFocus = 'shell'
-let g:ScreenShellQuitOnVimExit = 1
-
 "
 " Visual {
 set showmatch "Show matching brackets
@@ -95,14 +90,6 @@ map <C-h> :tabp<CR>
 map tt :tabedit<Space>
 
 map <leader>m :CommandT<CR>
-
-"screen and faster testing
-map <F5> :ScreenShellVertical<CR>
-map <Leader>sr :w<CR> :call ScreenShellSend("rspec ".@% )<CR>
-map <Leader>slr :w<CR> :call ScreenShellSend("rspec ".@% . ':' . line('.'))<CR>
-map <Leader>sallr :w<CR> :call ScreenShellSend("rspec")<CR>
-map <Leader>se :w<CR> :call ScreenShellSend("cucumber --format=pretty ".@% . ':' . line('.'))<CR>
-map <Leader>sb :w<CR> :call ScreenShellSend("break ".@% . ':' . line('.'))<CR>
 
 " testing without screen
 map <Leader>o :w<CR> :call RunCurrentLineInTest()<CR>
