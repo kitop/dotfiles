@@ -15,7 +15,8 @@ set showcmd
 "indent depending on the filetype
 filetype plugin indent on
 "colorscheme desert
-let g:solarized_termcolors=256
+let g:solarized_termtrans = 1
+set background=dark
 colorscheme solarized
 "Enable extended % matching
 runtime macros/matchit.vim
@@ -35,12 +36,6 @@ set formatoptions-=or
 
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
-
-" Don't use arrow keys
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
 
 " Emacs-like beginning and end of line.
 imap <c-e> <c-o>$
