@@ -87,7 +87,9 @@ map <C-right> :tabn<CR>
 map <C-l> :tabn<CR>
 map <C-left> :tabp<CR>
 map <C-h> :tabp<CR>
-map tt :tabedit<Space>
+map <leader>n :tabedit<Space>
+map <leader>m :CtrlP<CR>
+map <leader>- :nohl<CR>
 
 " testing without screen
 map <Leader>o :w<CR> :call RunCurrentLineInTest()<CR>
