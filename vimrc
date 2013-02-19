@@ -52,6 +52,16 @@ map <C-e>  <End>
 map j gj
 map k gk
 
+" Now, don't use arrow keys
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+
 " use w!! to sudo :w  a file that we opened without su privs
 cmap w!! w !sudo tee % >/dev/null
 
