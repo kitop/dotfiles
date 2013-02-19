@@ -38,8 +38,19 @@ set formatoptions-=or
 nnoremap <leader><leader> <c-^>
 
 " Emacs-like beginning and end of line.
-imap <c-e> <c-o>$
-imap <c-a> <c-o>^
+imap <C-e> <c-o>$
+imap <C-a> <c-o>^
+map <C-a>  <Home>
+map <C-e>  <End>
+
+" Make j & k linewise
+" turn off linewise keys -- normally, the `j' and `k' keys move the cursor down
+" one entire line. with line wrapping on, this can cause the cursor to actually
+" skip a few lines on the screen because it's moving from line N to line N+1 in
+" the file. I want this to act more visually -- I want `down' to mean the next
+" line on the screen
+map j gj
+map k gk
 
 " use w!! to sudo :w  a file that we opened without su privs
 cmap w!! w !sudo tee % >/dev/null
@@ -91,6 +102,10 @@ map <leader>n :tabedit<Space>
 map <leader>m :CtrlP<CR>
 map <leader>- :nohl<CR>
 
+nmap <leader>p :set paste!<CR>:set paste?<CR>
+nmap \n :setlocal number!<CR>:setlocal number?<CR>
+
+
 " testing without screen
 map <Leader>o :w<CR> :call RunCurrentLineInTest()<CR>
 map <Leader>t :w<CR> :call RunCurrentTest()<CR>
@@ -104,6 +119,7 @@ map <Leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR>
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 map <C-t> <esc>:tabnew<CR>
+
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
