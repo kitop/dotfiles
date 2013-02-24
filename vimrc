@@ -108,7 +108,7 @@ map <C-right> :tabn<CR>
 map <C-l> :tabn<CR>
 map <C-left> :tabp<CR>
 map <C-h> :tabp<CR>
-map <leader>n :tabedit<Space>
+map <leader>z :tabedit<Space>
 map <leader>m :CtrlP<CR>
 map <leader>- :nohl<CR>
 
