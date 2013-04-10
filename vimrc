@@ -8,6 +8,8 @@ set hidden
 syntax enable
 "row and column of the cursor
 set ruler
+" higlight current line
+set cursorline
 "see the actual mode
 set showmode
 "see the actual command
