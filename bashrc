@@ -134,6 +134,7 @@ fi
 # homebrew autocompletion
 if [ -x /usr/local/bin/brew ]; then
   source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
+  PATH=/usr/local/bin:$PATH
 fi
 
 #CUSTOM FUNCTIONS
