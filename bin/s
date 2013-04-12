@@ -4,8 +4,10 @@
 #
 
 if [ -f zeus.json ]; then
-  zeus rspec $@
-else
+  zeus test $@
+elif grep rspec Gemfile ; then
   bundle exec rspec $@
+else
+  bundle exec m $@
 fi
 
