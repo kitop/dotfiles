@@ -118,6 +118,9 @@ nmap <leader>p :set paste!<CR>:set paste?<CR>
 nmap \n :setlocal number!<CR>:setlocal number?<CR>
 
 
+nmap <leader>tu :Tunittest<CR>
+nmap <leader>tm :Tmodel<CR>
+
 " testing without screen
 map <Leader>o :w<CR> :call RunCurrentLineInTest()<CR>
 map <Leader>t :w<CR> :call RunCurrentTest()<CR>
