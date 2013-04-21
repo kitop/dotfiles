@@ -35,6 +35,10 @@ set pastetoggle=<F12>
 set scrolloff=3
 " Don't add the comment prefix when I hit enter or o/O on a comment line.
 set formatoptions-=or
+" Open new split panes to right and bottom, which feels more natural than
+" Vim’s default:
+set splitbelow
+set splitright
 
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
