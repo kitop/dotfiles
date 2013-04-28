@@ -6,8 +6,16 @@
 if [ -f zeus.json ]; then
   zeus test $@
 elif grep rspec Gemfile ; then
-  bundle exec rspec $@
+  if [ -f bin/rspec ]; then
+    ./bin/rspec $@
+  else
+    bundle exec rspec $@
+  fi
 else
-  bundle exec m $@
+  if [ -f bin/m ]; then
+    ./bin/m $@
+  else
+    bundle exec m $@
+  fi
 fi
 
