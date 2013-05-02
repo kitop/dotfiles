@@ -151,6 +151,7 @@ fi
 
 export PATH=./node_modules/.bin:$PATH
 export PATH=~/.bin:$PATH
+export PATH=./bin:$PATH
 
 if [ -f ~/.nvm/nvm.sh ]; then
     . ~/.nvm/nvm.sh
