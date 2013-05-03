@@ -124,6 +124,8 @@ nmap \n :setlocal number!<CR>:setlocal number?<CR>
 
 nmap <leader>tu :Tunittest<CR>
 nmap <leader>tm :Tmodel<CR>
+nmap <leader>tc :Tcontroller<CR>
+nmap <leader>tf :Tfunctionaltest<CR>
 
 " testing without screen
 map <Leader>o :w<CR> :call RunCurrentLineInTest()<CR>
