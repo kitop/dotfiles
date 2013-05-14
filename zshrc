@@ -58,7 +58,8 @@ if [ -f ~/.nvm/nvm.sh ]; then
 fi
 
 # Customize to your needs...
-export PATH=$HOME/.rbenv/bin:$PATH
+export PATH=/usr/local/bin:$PATH
+export PATH=$HOME/.rbenv/shims:$PATH
 export PATH=./node_modules/.bin:$PATH
 export PATH=~/.bin:$PATH
 export PATH=./bin:$PATH
