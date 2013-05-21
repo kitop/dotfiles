@@ -3,9 +3,9 @@
 # Run specs with great speed and daring-do.
 #
 
-if [ -f zeus.json ]; then
+if [ -S .zeus.sock ]; then
   zeus test $@
-elif grep rspec Gemfile ; then
+elif grep rspec Gemfile > /dev/null ; then
   if [ -f bin/rspec ]; then
     ./bin/rspec $@
   else
