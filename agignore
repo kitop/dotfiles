@@ -2,3 +2,5 @@ log
 tags
 tmp
 doc
+public/assets
+*.sql
