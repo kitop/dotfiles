@@ -2,20 +2,20 @@
 #git
 alias g='git'
 alias ga='git add'
-alias gp='git push'
-alias gl='git log'
-alias gst='git status -sb'
+alias gb='git branch'
+alias gc='git commit'
+alias gcl='git clone'
+alias gcm='git commit -m'
 alias gd='git diff'
 alias gdc='git diff --cached'
-alias gc='git commit'
-alias gcm='git commit -m'
-alias gb='git branch'
+alias gl='git log'
 alias go='git checkout'
+alias gp='git push'
+alias gst='git status -sb'
 alias gra='git remote add'
 alias grr='git remote rm'
 alias gpu='git pull'
-alias gcl='git clone'
-alias amend="git commit --amend"
+alias gm="git commit --amend"
 
 # Rails
 alias ra="rake"
@@ -28,4 +28,3 @@ alias bake="bundle exec rake"
 
 #other
 alias v='vi -p'
-alias bash_reload='source ~/.bashrc'

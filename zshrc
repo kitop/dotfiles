@@ -58,6 +58,7 @@ if [ -f ~/.nvm/nvm.sh ]; then
 fi
 
 # Customize to your needs...
+export EDITOR="vim"
 export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/.rbenv/shims:$PATH
 export PATH=./node_modules/.bin:$PATH
