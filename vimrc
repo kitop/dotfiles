@@ -14,6 +14,8 @@ set cursorline
 set showmode
 "see the actual command
 set showcmd
+"always show tabs
+set showtabline=2
 "indent depending on the filetype
 filetype plugin indent on
 "colorscheme desert
@@ -39,6 +41,51 @@ set formatoptions-=or
 " Vim’s default:
 set splitbelow
 set splitright
+
+"""" STATUSLINE - based on https://github.com/christoomey/dotfiles/blob/master/vim/rcfiles/statusline#L54
+set laststatus=2 " Always show the statusline
+set statusline= " Clear the statusline for vimrc reloads
+
+"define 3 custom highlight groups
+hi User1 ctermbg=lightgray ctermfg=yellow guifg=orange guibg=#444444 cterm=bold gui=bold
+hi User2 ctermbg=lightgray ctermfg=red guifg=#dc143c guibg=#444444 gui=none
+hi User3 ctermbg=lightgray ctermfg=red guifg=#ffff00 guibg=#444444 gui=bold
+
+
+set stl=%*                       " Normal statusline highlight
+set stl+=%{InsertSpace()}        " Put a leading space in
+set stl+=%2*                     " Red highlight
+set stl+=%m                      " Modified flag
+set stl+=%*                      " Normal 
+set stl+=%t                      " Filename
+set stl+=%1*                     " Yellow highlight
+set stl+=%{HasPaste()}           " Red show paste
+set stl+=%*                      " Return to normal stl hilight
+
+set stl+=%r                      " Readonly flag
+set stl+=%h                      " Help file flag
+set stl+=\ %y                    " Filetype
+
+set stl+=%=                      " Right align from here on
+set stl+=\ \ Col:%c              " Column number
+set stl+=\ \ Line:%l/%L          " Line # / total lines
+set stl+=\ \ %P%{InsertSpace()}  " Single space buffer
+
+
+function! InsertSpace()
+    " For adding trailing spaces onto statusline
+    return ' '
+endfunction
+
+function! HasPaste()
+    if &paste
+        return '[paste]'
+    else
+        return ''
+    endif
+endfunction
+
+"""" END STATUSLINE
 
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
@@ -77,11 +124,10 @@ set showmatch "Show matching brackets
 set relativenumber
 " }
 " Searching {
-set hls "Higlight search
-set hlsearch
-set incsearch " ...dynamically as they are typed.
-set ignorecase
-set smartcase
+set hlsearch                    " hilight searches, map below to clear
+set incsearch                   " do incremental searching
+set ignorecase                  " Case insensitive...
+set smartcase                   " ...except if you use UCase
 " }
 "
 " Indenting {
@@ -98,14 +144,17 @@ set list listchars=tab:\ \ ,trail:·
 " make uses real tabs
 au FileType make set noexpandtab
 
-
 " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
-au BufRead,BufNewFile *.rl set ft=ragel
-au BufRead,BufNewFile *.txt call s:setupWrapping()
 
 " Remove trailing whitespace on save for ruby files.
-au BufWritePre *.rb :%s/\s\+$//e
+au BufWritePre *.{rb,js,coffee} :call StripTrailingWhitespaces()
+function! StripTrailingWhitespaces()
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//e
+  call cursor(l, c)
+endfun
 
 
 let mapleader = ","
