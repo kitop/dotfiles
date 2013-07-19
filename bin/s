@@ -11,11 +11,14 @@ elif grep rspec Gemfile > /dev/null ; then
   else
     bundle exec rspec $@
   fi
-else
+elif grep "gem (\"|')m(\"|')" Gemfile > /dev/null ; then
   if [ -f bin/m ]; then
     ./bin/m $@
   else
     bundle exec m $@
   fi
+else
+  testfile=$(echo $@ | sed -e 's/:.*//g')
+  rake test TEST=$testfile
 fi
 
