@@ -21,14 +21,9 @@
   new = ls-files --others --exclude-standard
   added = diff --cached --name-only
 
-  # svn shortcuts
-  svnf = svn fetch # updates trunk and all branches; good to use when cherry-picking across branches
-  svnup = svn rebase
-  svnci = svn dcommit
-  # good for code reviews
-  # find by commit number
-  svnfind = !sh -c 'git msgforsvn | grep -e \\@$0 | cut -f 1'
-  svnshow = !sh -c 'git svnfind $0 | xargs -n1 git show '
+  ignore = update-index --assume-unchanged
+  unignore = update-index --no-assume-unchanged
+  ignored = !git ls-files -v | grep "^[[:lower:]]"
 
 [help]
   autocorrect = 1
