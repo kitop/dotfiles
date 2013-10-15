@@ -1,6 +1,6 @@
 --- 
 :sources: 
-- http://gems.rubyforge.org/
+- http://rubygems.org
 - http://gems.github.com/
 :benchmark: false
 :backtrace: false
