@@ -1,7 +1,6 @@
 --- 
 :sources: 
-- http://rubygems.org
-- http://gems.github.com/
+- https://rubygems.org
 :benchmark: false
 :backtrace: false
 :update_sources: true
