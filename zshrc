@@ -44,6 +44,17 @@ plugins=(brew gem git heroku osx)
 
 source $ZSH/oh-my-zsh.sh
 
+
+export PATH=/usr/local/bin:$PATH
+export PATH=$HOME/.rbenv/shims:$PATH
+export PATH=./node_modules/.bin:$PATH
+export PATH=~/.bin:$PATH
+export PATH=./bin:$PATH
+export PATH=/usr/local/heroku/bin:$PATH:
+#/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
 # rbenv
 if [ -d ~/.rbenv ]; then
   eval "$(rbenv init - zsh)"
@@ -63,15 +74,6 @@ fi
 
 # Customize to your needs...
 export EDITOR="vim"
-export PATH=/usr/local/bin:$PATH
-export PATH=$HOME/.rbenv/shims:$PATH
-export PATH=./node_modules/.bin:$PATH
-export PATH=~/.bin:$PATH
-export PATH=./bin:$PATH
-export PATH=/usr/local/heroku/bin:$PATH:
-#/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
 
 #fixing strange git errors
 export LC_CTYPE=en_US.UTF-8
