@@ -40,14 +40,13 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew gem git heroku osx)
+plugins=(brew gem git heroku osx nvm npm)
 
 source $ZSH/oh-my-zsh.sh
 
 
 export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/.rbenv/shims:$PATH
-export PATH=./node_modules/.bin:$PATH
 export PATH=~/.bin:$PATH
 export PATH=./bin:$PATH
 export PATH=/usr/local/heroku/bin:$PATH:
@@ -67,6 +66,8 @@ fi
 if [ -f ~/.nvm/nvm.sh ]; then
     . ~/.nvm/nvm.sh
 fi
+# ./node_modules should be before nvm in the path
+export PATH=./node_modules/.bin:$PATH
 
 if [ -f /usr/local/share/zsh/site-functions ]; then
   . /usr/local/share/zsh/site-functions
@@ -74,6 +75,7 @@ fi
 
 # Customize to your needs...
 export EDITOR="vim"
+
 
 #fixing strange git errors
 export LC_CTYPE=en_US.UTF-8
