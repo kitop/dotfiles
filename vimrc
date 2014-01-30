@@ -148,7 +148,7 @@ au FileType make set noexpandtab
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
 
 " Remove trailing whitespace on save for ruby files.
-au BufWritePre *.{rb,js,coffee} :call StripTrailingWhitespaces()
+au BufWritePre *.{rb,rake,js,coffee,haml,css,scss} :call StripTrailingWhitespaces()
 function! StripTrailingWhitespaces()
   let l = line(".")
   let c = col(".")
