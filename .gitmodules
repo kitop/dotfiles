@@ -40,3 +40,6 @@
 [submodule "vim/bundle/vim-ruby-minitest"]
 	path = vim/bundle/vim-ruby-minitest
 	url = git@github.com:sunaku/vim-ruby-minitest.git
+[submodule "vim/bundle/vim-json"]
+	path = vim/bundle/vim-json
+	url = git@github.com:elzr/vim-json.git
