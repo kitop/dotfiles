@@ -43,3 +43,6 @@
 [submodule "vim/bundle/vim-json"]
 	path = vim/bundle/vim-json
 	url = git@github.com:elzr/vim-json.git
+[submodule "vim/bundle/vim-cuba"]
+	path = vim/bundle/vim-cuba
+	url = https://github.com/kitop/vim-cuba.git
