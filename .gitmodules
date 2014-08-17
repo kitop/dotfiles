@@ -1,6 +1,6 @@
 [submodule "vim/bundle/vim-coffee-script"]
 	path = vim/bundle/vim-coffee-script
-	url = https://github.com/kchmck/vim-coffee-script.git
+	url = git://github.com/kchmck/vim-coffee-script.git
 [submodule "vim/bundle/vim-colors-solarized"]
 	path = vim/bundle/vim-colors-solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
@@ -15,16 +15,16 @@
 	url = git://github.com/kien/ctrlp.vim.git
 [submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
+	url = git://github.com/scrooloose/syntastic.git
 [submodule "vim/bundle/vim-surround"]
 	path = vim/bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
 [submodule "vim/bundle/vim-matchit"]
 	path = vim/bundle/vim-matchit
-	url = https://github.com/tsaleh/vim-matchit
+	url = git://github.com/tsaleh/vim-matchit.git
 [submodule "vim/bundle/ag.vim"]
 	path = vim/bundle/ag.vim
-	url = https://github.com/rking/ag.vim
+	url = git://github.com/rking/ag.vim.git
 [submodule "vim/bundle/tabular"]
 	path = vim/bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
@@ -33,7 +33,7 @@
 	url = git://github.com/tpope/vim-abolish.git
 [submodule "vim/bundle/vim-javascript"]
 	path = vim/bundle/vim-javascript
-	url = https://github.com/pangloss/vim-javascript.git
+	url = git://github.com/pangloss/vim-javascript.git
 [submodule "vim/bundle/vim-to-github"]
 	path = vim/bundle/vim-to-github
 	url = git@github.com:tonchis/vim-to-github.git
@@ -45,10 +45,10 @@
 	url = git@github.com:elzr/vim-json.git
 [submodule "vim/bundle/vim-cuba"]
 	path = vim/bundle/vim-cuba
-	url = https://github.com/kitop/vim-cuba.git
+	url = git://github.com/kitop/vim-cuba.git
 [submodule "vim/bundle/vim-markdown"]
 	path = vim/bundle/vim-markdown
-	url = https://github.com/tpope/vim-markdown.git
+	url = git://github.com/tpope/vim-markdown.git
 [submodule "vim/bundle/vim-arduino-ino"]
 	path = vim/bundle/vim-arduino-ino
 	url = git@github.com:jplaut/vim-arduino-ino.git
