@@ -25,15 +25,20 @@
   unignore = update-index --no-assume-unchanged
   ignored = !git ls-files -v | grep "^[[:lower:]]"
 
-[help]
-  autocorrect = 1
 [push]
   # Push current branch even if you've never pushed it before
   default = current
 [branch]
-	autosetuprebase = always
+  autosetuprebase = always
 [rerere]
-	enabled = 1
+  enabled = 1
+[fetch]
+  prune = true
+
+[help]
+  autocorrect = 1
+[commit]
+  template = ~/.gitmessage
 
 [url "git@heroku.com:"]
   insteadOf = heroku:
