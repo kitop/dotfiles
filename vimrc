@@ -121,6 +121,7 @@ cmap w!! w !sudo tee % >/dev/null
 "
 " Visual {
 set showmatch "Show matching brackets
+set number
 set relativenumber
 " }
 " Searching {

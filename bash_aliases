@@ -27,4 +27,4 @@ alias bx='bundle exec'
 alias bake="bundle exec rake"
 
 #other
-alias v='vi -p'
+alias v='vim -p'
