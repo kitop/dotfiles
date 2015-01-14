@@ -55,3 +55,6 @@
 [submodule "vim-matchit"]
 	path = vim-matchit
 	url = git://github.com/edsono/vim-matchit.git
+[submodule "vim/bundle/vim-filebeagle"]
+	path = vim/bundle/vim-filebeagle
+	url = git@github.com:jeetsukumaran/vim-filebeagle.git
