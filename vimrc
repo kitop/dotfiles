@@ -1,6 +1,37 @@
-" pathogen
-call pathogen#infect()
-" Set encoding
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+" "call vundle#begin('~/some/path/here')
+"
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tpope/vim-abolish'
+Plugin 'rking/ag.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'godlygeek/tabular'
+Plugin 'jplaut/vim-arduino-ino'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'kitop/vim-cuba'
+Plugin 'tpope/vim-endwise'
+Plugin 'pangloss/vim-javascript'
+Plugin 'elzr/vim-json'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'vim-scripts/matchit.zip'
+Plugin 'tpope/vim-rails'
+Plugin 'sunaku/vim-ruby-minitest'
+Plugin 'tpope/vim-surround'
+Plugin 'tonchis/vim-to-github'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+
 set encoding=utf-8
 "manage buffers efectively
 set hidden
