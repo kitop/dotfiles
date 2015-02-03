@@ -74,6 +74,8 @@ set splitbelow
 set splitright
 " make backspace work like most other apps
 set backspace=2
+" Disable Markdown Folding
+let g:vim_markdown_folding_disabled=1
 
 """" STATUSLINE - based on https://github.com/christoomey/dotfiles/blob/master/vim/rcfiles/statusline#L54
 set laststatus=2 " Always show the statusline
