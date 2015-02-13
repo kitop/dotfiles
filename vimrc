@@ -77,6 +77,8 @@ set backspace=2
 " Disable Markdown Folding
 let g:vim_markdown_folding_disabled=1
 
+let g:syntastic_ruby_mri_exe='~/.rbenv/shims/ruby'
+
 """" STATUSLINE - based on https://github.com/christoomey/dotfiles/blob/master/vim/rcfiles/statusline#L54
 set laststatus=2 " Always show the statusline
 set statusline= " Clear the statusline for vimrc reloads
