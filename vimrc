@@ -11,6 +11,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'elzr/vim-json'
 Plugin 'godlygeek/tabular'
 Plugin 'jplaut/vim-arduino-ino'
@@ -45,8 +46,6 @@ set cursorline
 set showmode
 "see the actual command
 set showcmd
-"always show tabs
-set showtabline=2
 "indent depending on the filetype
 filetype plugin indent on
 "colorscheme desert
@@ -125,7 +124,7 @@ endfunction
 """" END STATUSLINE
 
 " Switch between the last two files
-nnoremap <leader><leader> <c-^>
+nnoremap <leader><leader> <C-^>
 
 " Emacs-like beginning and end of line.
 imap <C-e> <c-o>$
@@ -142,6 +141,9 @@ map <C-e>  <End>
 map j gj
 map k gk
 
+"Make Y yank to end of line (like D, or C)
+nmap Y y$
+
 " Now, don't use arrow keys
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
@@ -154,6 +156,20 @@ imap <right> <nop>
 
 " use w!! to sudo :w  a file that we opened without su privs
 cmap w!! w !sudo tee % >/dev/null
+
+" Do not use <Ctrl-c> to break out to normal mode
+" Use C-Space to Esc out of any mode
+nnoremap <C-Space> <Esc>:noh<CR>
+vnoremap <C-Space> <Esc>gV
+onoremap <C-Space> <Esc>
+cnoremap <C-Space> <C-c>
+inoremap <C-Space> <Esc>`^
+" Terminal sees <C-@> as <C-space> WTF, but ok
+nnoremap <C-@> <Esc>:noh<CR>
+vnoremap <C-@> <Esc>gV
+onoremap <C-@> <Esc>
+cnoremap <C-@> <C-c>
+inoremap <C-@> <Esc>`^
 
 "
 " Visual {
@@ -197,22 +213,14 @@ endfun
 
 let mapleader = ","
 
-map <C-right> :tabn<CR>
-map <C-l> :tabn<CR>
-map <C-left> :tabp<CR>
-map <C-h> :tabp<CR>
+map <C-Right> :tabn<CR>
+map <C-Left> :tabp<CR>
 map <leader>z :tabedit<Space>
 map <leader>m :CtrlP<CR>
 map <leader>- :nohl<CR>
 
 nmap <leader>p :set paste!<CR>:set paste?<CR>
 nmap \n :setlocal number!<CR>:setlocal number?<CR>
-
-
-nmap <leader>tu :Tunittest<CR>
-nmap <leader>tm :Tmodel<CR>
-nmap <leader>tc :Tcontroller<CR>
-nmap <leader>tf :Tfunctionaltest<CR>
 
 " testing without screen
 map <Leader>o :w<CR> :call RunCurrentLineInTest()<CR>
@@ -223,11 +231,6 @@ map <Leader>t :w<CR> :call RunCurrentTest()<CR>
 map <Leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
 map <Leader>s :split <C-R>=expand("%:p:h") . '/'<CR>
 map <Leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR>
-
-map <C-s> <esc>:w<CR>
-imap <C-s> <esc>:w<CR>
-map <C-t> <esc>:tabnew<CR>
-
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
