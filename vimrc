@@ -12,6 +12,7 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'christoomey/vim-tmux-runner'
 Plugin 'elzr/vim-json'
 Plugin 'godlygeek/tabular'
 Plugin 'jplaut/vim-arduino-ino'
@@ -23,15 +24,23 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'sunaku/vim-ruby-minitest'
+Plugin 'thoughtbot/vim-rspec'
 Plugin 'tonchis/vim-to-github'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/matchit.zip'
+Plugin 'vim-scripts/tComment'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+let mapleader = ","
+
+if $TMUX == ''
+  set clipboard+=unnamed
+endif
 
 set encoding=utf-8
 "manage buffers efectively
@@ -77,6 +86,8 @@ set backspace=2
 let g:vim_markdown_folding_disabled=1
 
 let g:syntastic_ruby_mri_exe='~/.rbenv/shims/ruby'
+
+autocmd VimResized * :wincmd =
 
 """" STATUSLINE - based on https://github.com/christoomey/dotfiles/blob/master/vim/rcfiles/statusline#L54
 set laststatus=2 " Always show the statusline
@@ -211,82 +222,26 @@ function! StripTrailingWhitespaces()
 endfun
 
 
-let mapleader = ","
-
 map <C-Right> :tabn<CR>
 map <C-Left> :tabp<CR>
 map <leader>z :tabedit<Space>
 map <leader>m :CtrlP<CR>
-map <leader>- :nohl<CR>
 
 nmap <leader>p :set paste!<CR>:set paste?<CR>
 nmap \n :setlocal number!<CR>:setlocal number?<CR>
 
-" testing without screen
-map <Leader>o :w<CR> :call RunCurrentLineInTest()<CR>
-map <Leader>t :w<CR> :call RunCurrentTest()<CR>
+nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
+nnoremap <leader>= :wincmd =<cr>
+
+let g:rspec_command = "VtrSendCommandToRunner! rspec {spec}"
+map <Leader>t :call RunNearestSpec()<CR>
+map <Leader>a :call RunCurrentSpecFile()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>r :call RunAllSpecs()<CR>
 
 " Edit another file in the same directory as the current file
 " uses expression to extract path from current file's path
 map <Leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
 map <Leader>s :split <C-R>=expand("%:p:h") . '/'<CR>
 map <Leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR>
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Test-running stuff
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! RunCurrentTest()
-  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\)$') != -1
-  if in_test_file
-    call SetTestFile()
-
-    if match(expand('%'), '\.feature$') != -1
-      call SetTestRunner("!cucumber")
-      exec g:bjo_test_runner g:bjo_test_file
-    elseif match(expand('%'), '_spec\.rb$') != -1
-      call SetTestRunner("!s")
-      exec g:bjo_test_runner g:bjo_test_file
-    else
-      call SetTestRunner("!ruby -Itest")
-      exec g:bjo_test_runner g:bjo_test_file
-    endif
-  else
-    exec g:bjo_test_runner g:bjo_test_file
-  endif
-endfunction
-
-function! SetTestRunner(runner)
-  let g:bjo_test_runner=a:runner
-endfunction
-
-function! RunCurrentLineInTest()
-  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\)$') != -1
-  if in_test_file
-    call SetTestFileWithLine()
-  end
-
-  exec "!s" g:bjo_test_file . ":" . g:bjo_test_file_line
-endfunction
-
-function! SetTestFile()
-  let g:bjo_test_file=@%
-endfunction
-
-function! SetTestFileWithLine()
-  let g:bjo_test_file=@%
-  let g:bjo_test_file_line=line(".")
-endfunction
-
-function! CorrectTestRunner()
-  if match(expand('%'), '\.feature$') != -1
-    return "cucumber"
-  elseif match(expand('%'), '_spec\.rb$') != -1
-    return "s"
-  else
-    return "ruby"
-  endif
-endfunction
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
