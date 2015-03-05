@@ -40,7 +40,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(aws brew gem git heroku knife osx nvm npm vagrant)
+plugins=(brew gem git heroku osx)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -49,8 +49,7 @@ export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/.rbenv/shims:$PATH
 export PATH=~/.bin:$PATH
 export PATH=./bin:$PATH
-export PATH=/usr/local/heroku/bin:$PATH:
-#/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin
+export PATH=/usr/local/heroku/bin:$PATH
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
