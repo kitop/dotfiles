@@ -239,9 +239,8 @@ map <Leader>a :call RunCurrentSpecFile()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>r :call RunAllSpecs()<CR>
 
-" Edit another file in the same directory as the current file
-" uses expression to extract path from current file's path
-map <Leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
-map <Leader>s :split <C-R>=expand("%:p:h") . '/'<CR>
-map <Leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR>
+" Edit another file -- important to keep that trailing space
+map <Leader>e :e 
+map <Leader>s :split 
+map <Leader>v :vnew 
 
