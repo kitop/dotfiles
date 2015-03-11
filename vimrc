@@ -227,6 +227,11 @@ map <C-Left> :tabp<CR>
 map <leader>z :tabedit<Space>
 map <leader>m :CtrlP<CR>
 
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+      \ --ignore .git
+      \ --ignore .DS_Store
+      \ -g ""'
+
 nmap <leader>p :set paste!<CR>:set paste?<CR>
 nmap \n :setlocal number!<CR>:setlocal number?<CR>
 
