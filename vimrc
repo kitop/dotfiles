@@ -238,7 +238,7 @@ nmap \n :setlocal number!<CR>:setlocal number?<CR>
 nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
 nnoremap <leader>= :wincmd =<cr>
 
-let g:rspec_command = "VtrSendCommandToRunner! bundle exec rspec {spec}"
+let g:rspec_command = "VtrSendCommandToRunner! rspec {spec}"
 map <Leader>t :call RunNearestSpec()<CR>
 map <Leader>a :call RunCurrentSpecFile()<CR>
 map <Leader>l :call RunLastSpec()<CR>
