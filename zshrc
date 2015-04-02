@@ -45,14 +45,6 @@ plugins=(brew gem git heroku osx)
 source $ZSH/oh-my-zsh.sh
 
 
-export PATH=/usr/local/bin:$PATH
-export PATH=$HOME/.rbenv/shims:$PATH
-export PATH=~/.bin:$PATH
-export PATH=./bin:$PATH
-export PATH=/usr/local/heroku/bin:$PATH
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-
 # rbenv
 if [ -d ~/.rbenv ]; then
   eval "$(rbenv init - zsh)"
@@ -71,6 +63,14 @@ if [ -f ~/.nvm/nvm.sh ]; then
 fi
 # ./node_modules should be before nvm in the path
 export PATH=./node_modules/.bin:$PATH
+
+export PATH=/usr/local/bin:$PATH
+export PATH=$HOME/.rbenv/shims:$PATH
+export PATH=~/.bin:$PATH
+export PATH=./bin:$PATH
+export PATH=/usr/local/heroku/bin:$PATH
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
 
 if [ -f /usr/local/share/zsh/site-functions ]; then
   . /usr/local/share/zsh/site-functions
