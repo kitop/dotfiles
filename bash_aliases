@@ -5,6 +5,7 @@ alias ga='git add'
 alias gb='git branch'
 alias gc='git commit'
 alias gcm='git commit -m'
+alias gca="git commit --amend"
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias gfa='git fetch --all'
@@ -14,7 +15,7 @@ alias gp='git push'
 alias gst='git status -sb'
 alias gri='git rebase -i'
 alias gpu='git pull'
-alias gm="git commit --amend"
+alias gmf="git merge --ff-only"
 
 # Rails
 alias ra="rake"
