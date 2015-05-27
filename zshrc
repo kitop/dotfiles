@@ -47,6 +47,7 @@ source $ZSH/oh-my-zsh.sh
 
 # rbenv
 if [ -d ~/.rbenv ]; then
+  export PATH=$HOME/.rbenv/bin:$PATH
   eval "$(rbenv init - zsh)"
 fi
 
