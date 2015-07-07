@@ -227,6 +227,9 @@ map <C-Left> :tabp<CR>
 map <leader>z :tabedit<Space>
 map <leader>m :CtrlP<CR>
 
+let g:to_github_clip_command = 'pbcopy'
+let g:to_github_clipboard = 1
+
 let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ --ignore .git
       \ --ignore .DS_Store
