@@ -3,6 +3,7 @@
 ensure brew
 ensure cask
 
+ensure package the_silver_searcher
 ensure package tmux
 ensure package pow
 ensure package vim
