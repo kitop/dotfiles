@@ -5,6 +5,7 @@ ensure cask
 
 ensure package the_silver_searcher
 ensure package tmux
+ensure package mobile-shell
 ensure package pow
 ensure package vim
 ensure package wget
