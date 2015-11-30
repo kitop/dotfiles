@@ -1,0 +1,32 @@
+# vim: set ft=sh
+
+ensure brew
+ensure cask
+
+ensure package tmux
+ensure package pow
+ensure package vim
+ensure package wget
+ensure package zsh
+
+ensure package mysql --service
+ensure package redis --service
+# you need Java installed for this
+ensure package elasticsearch --service
+
+ensure app iterm2
+ensure app google-chrome --copy
+ensure app firefox
+ensure app slack
+ensure app limechat
+ensure app spotify
+ensure app sequel-pro
+ensure app imageoptim
+ensure app gifs
+
+# custom
+ensure zsh
+ensure oh-my-zsh
+ensure rbenv
+ensure rbenv-ruby "2.2.3"
+ensure vim-vundle
