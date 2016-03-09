@@ -51,6 +51,9 @@ if [ -d ~/.rbenv ]; then
   eval "$(rbenv init - zsh)"
 fi
 
+# pyenv
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
@@ -84,3 +87,7 @@ export EDITOR="vim"
 #fixing strange git errors
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+
+export DOCKER_HOST=tcp://192.168.99.100:2376
+export DOCKER_CERT_PATH=/Users/kito/.docker/machine/machines/default
+export DOCKER_TLS_VERIFY=1
