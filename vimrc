@@ -53,6 +53,8 @@ augroup vimrcEx
   autocmd BufRead,BufNewFile *.md set filetype=markdown
   autocmd BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
 augroup END
+set exrc
+set secure
 
 let mapleader = ","
 

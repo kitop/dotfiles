@@ -48,3 +48,5 @@
 [url "git://github.com/"]
   # Read-only
   insteadOf = gh:
+[core]
+	excludesfile = /Users/kito/.gitignore_global
