@@ -29,3 +29,4 @@ alias bake="bundle exec rake"
 
 #other
 alias v='vim -p'
+alias gpg="gpg2"
