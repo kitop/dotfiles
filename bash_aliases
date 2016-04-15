@@ -18,6 +18,11 @@ alias gri='git rebase -i'
 alias gpu='git pull'
 alias gmf="git merge --ff-only"
 
+_git_checkout_pull_request() {
+  git fetch origin pull/$1/head:${2:-$1}
+}
+alias gcopr=_git_checkout_pull_request
+
 # Rails
 alias ra="rake"
 alias rmig='rake db:migrate'
