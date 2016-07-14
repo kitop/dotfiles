@@ -40,7 +40,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew gem git heroku osx)
+plugins=(brew gem git heroku mix osx)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -87,6 +87,15 @@ export EDITOR="vim"
 #fixing strange git errors
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+
+function f_notifyme {
+  LAST_EXIT_CODE=$?
+  CMD=$(fc -ln -1)
+  # No point in waiting for the command to complete
+  notifyme "$CMD" "$LAST_EXIT_CODE" &
+}
+
+export PS1='$(f_notifyme)'$PS1
 
 export DOCKER_HOST=tcp://192.168.99.100:2376
 export DOCKER_CERT_PATH=/Users/kito/.docker/machine/machines/default
