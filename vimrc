@@ -15,6 +15,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'christoomey/vim-tmux-runner'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'elzr/vim-json'
+Plugin 'ElmCast/elm-vim'
 Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'godlygeek/tabular'
 Plugin 'jplaut/vim-arduino-ino'
@@ -22,6 +23,7 @@ Plugin 'junegunn/vim-easy-align'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'kien/ctrlp.vim'
 Plugin 'kitop/vim-cuba'
+Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'rking/ag.vim'
@@ -58,6 +60,16 @@ augroup vimrcEx
 augroup END
 set exrc
 set secure
+
+" Open to linenumber
+function! OpenToLineNumber()
+  let filename=expand("%")
+  let parts=split(filename, ":")
+  exec ":e " . parts[0]
+  exec ":" . parts[1]
+  redraw!
+endfunction
+autocmd BufNewFile,BufEnter,BufRead *:* nested call OpenToLineNumber()
 
 let mapleader = ","
 
@@ -112,6 +124,8 @@ set backspace=2
 let g:vim_markdown_folding_disabled=1
 
 let g:syntastic_ruby_mri_exe='~/.rbenv/shims/ruby'
+let g:jsx_ext_required = 0 
+
 
 autocmd VimResized * :wincmd =
 
@@ -239,7 +253,7 @@ au FileType make set noexpandtab
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
 
 " Remove trailing whitespace on save for ruby files.
-au BufWritePre *.{rb,rake,js,coffee,haml,css,scss} :call StripTrailingWhitespaces()
+au BufWritePre *.{rb,rake,js,coffee,haml,css,scss,ex,exs} :call StripTrailingWhitespaces()
 function! StripTrailingWhitespaces()
   let l = line(".")
   let c = col(".")
