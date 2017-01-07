@@ -10,14 +10,17 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
+Plugin 'ElmCast/elm-vim'
+Plugin 'Glench/Vim-Jinja2-Syntax'
+Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'christoomey/vim-tmux-runner'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'elzr/vim-json'
-Plugin 'ElmCast/elm-vim'
-Plugin 'Glench/Vim-Jinja2-Syntax'
+Plugin 'garbas/vim-snipmate'
 Plugin 'godlygeek/tabular'
+Plugin 'honza/vim-snippets'
 Plugin 'jplaut/vim-arduino-ino'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'kchmck/vim-coffee-script'
@@ -30,17 +33,23 @@ Plugin 'rking/ag.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'sunaku/vim-ruby-minitest'
 Plugin 'thoughtbot/vim-rspec'
+Plugin 'tomtom/tlib_vim'
 Plugin 'tonchis/vim-to-github'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
+Plugin 'vim-scripts/logstash.vim'
 Plugin 'vim-scripts/matchit.zip'
 Plugin 'vim-scripts/tComment'
-Plugin 'vim-scripts/logstash.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+let g:snipMate = get(g:, 'snipMate', {}) " Allow for vimrc re-sourcing
+let g:snipMate.scope_aliases = {}
+let g:snipMate.scope_aliases['javascript'] = 'javascript,html'
+
 
 augroup vimrcEx
   autocmd!
@@ -54,9 +63,11 @@ augroup vimrcEx
     \ endif
 
   " Set syntax highlighting for specific file types
-  autocmd BufRead,BufNewFile Appraisals set filetype=ruby
   autocmd BufRead,BufNewFile *.md set filetype=markdown
   autocmd BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
+  " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
+  autocmd BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Appraisals,Thorfile,config.ru} set ft=ruby
+
 augroup END
 set exrc
 set secure
@@ -100,7 +111,7 @@ colorscheme solarized
 runtime macros/matchit.vim
 "visual autocomplete for command menu
 set wildmenu
-set lazyredraw          " redraw only when we need to.
+"set lazyredraw          " redraw only when we need to.
 "Store temp files in a central spot
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
@@ -124,6 +135,9 @@ set backspace=2
 let g:vim_markdown_folding_disabled=1
 
 let g:syntastic_ruby_mri_exe='~/.rbenv/shims/ruby'
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_eslint_exec = 'eslint_d'
+
 let g:jsx_ext_required = 0 
 
 
@@ -225,7 +239,6 @@ inoremap <C-@> <Esc>`^
 "
 " Visual {
 set showmatch "Show matching brackets
-set number
 set relativenumber
 " }
 " Searching {
@@ -249,10 +262,7 @@ set list listchars=tab:\ \ ,trail:·
 " make uses real tabs
 au FileType make set noexpandtab
 
-" Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
-au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
-
-" Remove trailing whitespace on save for ruby files.
+" Remove trailing whitespace on save for specific filetypes.
 au BufWritePre *.{rb,rake,js,coffee,haml,css,scss,ex,exs} :call StripTrailingWhitespaces()
 function! StripTrailingWhitespaces()
   let l = line(".")
