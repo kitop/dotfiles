@@ -277,6 +277,7 @@ map <C-Right> :tabn<CR>
 map <C-Left> :tabp<CR>
 map <leader>z :tabedit<Space>
 map <leader>m :CtrlP<CR>
+map <leader>. :CtrlPTag<cr>
 
 let g:to_github_clip_command = 'pbcopy'
 let g:to_github_clipboard = 1
