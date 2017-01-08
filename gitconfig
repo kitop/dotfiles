@@ -49,4 +49,4 @@
   # Read-only
   insteadOf = gh:
 [core]
-	excludesfile = /Users/kito/.gitignore_global
+	excludesfile = ~/.gitignore_global
