@@ -210,15 +210,11 @@ map k gk
 "Make Y yank to end of line (like D, or C)
 nmap Y y$
 
-" Now, don't use arrow keys
+" Don't use arrow keys
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
-imap <Up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
 
 " use w!! to sudo :w  a file that we opened without su privs
 cmap w!! w !sudo tee % >/dev/null
@@ -240,6 +236,7 @@ inoremap <C-@> <Esc>`^
 "
 " Visual {
 set showmatch "Show matching brackets
+set number
 set relativenumber
 " }
 " Searching {
