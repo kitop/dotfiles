@@ -3,6 +3,7 @@ tags
 tmp
 doc
 public/assets
+public/packs
 *.sql
 _build
 deps
