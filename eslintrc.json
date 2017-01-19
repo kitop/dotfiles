@@ -3,8 +3,7 @@
     "installedESLint": true,
     "plugins": [
         "react",
-        "jsx-a11y",
-        "import"
+        "jsx-a11y"
     ],
     "rules": {
       "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
