@@ -33,7 +33,7 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'sunaku/vim-ruby-minitest'
-Plugin 'thoughtbot/vim-rspec'
+Plugin 'janko-m/vim-test'
 Plugin 'tomtom/tlib_vim'
 Plugin 'tonchis/vim-to-github'
 Plugin 'tpope/vim-abolish'
@@ -290,11 +290,12 @@ nmap \n :setlocal number!<CR>:setlocal number?<CR>
 nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
 nnoremap <leader>= :wincmd =<cr>
 
-let g:rspec_command = "VtrSendCommandToRunner! rspec {spec}"
-map <Leader>t :call RunNearestSpec()<CR>
-map <Leader>a :call RunCurrentSpecFile()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>r :call RunAllSpecs()<CR>
+let test#strategy = "vtr"
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>a :TestFile<CR>
+nmap <silent> <leader>r :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
 
 " Edit another file -- important to keep that trailing space
 map <Leader>e :e 
