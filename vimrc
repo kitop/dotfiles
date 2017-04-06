@@ -14,6 +14,7 @@ Plugin 'ElmCast/elm-vim'
 Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'christoomey/vim-tmux-runner'
 Plugin 'craigemery/vim-autotag'
@@ -51,6 +52,7 @@ let g:snipMate = get(g:, 'snipMate', {}) " Allow for vimrc re-sourcing
 let g:snipMate.scope_aliases = {}
 let g:snipMate.scope_aliases['javascript'] = 'javascript,html'
 
+let g:elm_format_autosave = 1
 
 augroup vimrcEx
   autocmd!
@@ -261,7 +263,7 @@ set list listchars=tab:\ \ ,trail:·
 au FileType make set noexpandtab
 
 " Remove trailing whitespace on save for specific filetypes.
-au BufWritePre *.{rb,rake,js,coffee,haml,css,scss,ex,exs} :call StripTrailingWhitespaces()
+au BufWritePre *.{rb,rake,js,coffee,haml,css,scss,ex,exs,elm} :call StripTrailingWhitespaces()
 function! StripTrailingWhitespaces()
   let l = line(".")
   let c = col(".")
