@@ -11,7 +11,6 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'ElmCast/elm-vim'
-Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'cakebaker/scss-syntax.vim'
@@ -234,6 +233,9 @@ vnoremap <C-@> <Esc>gV
 onoremap <C-@> <Esc>
 cnoremap <C-@> <C-c>
 inoremap <C-@> <Esc>`^
+
+" inserts the current filename without the extension at the cursor position
+inoremap \fn <C-R>=expand("%:t:r")<CR>
 
 "
 " Visual {

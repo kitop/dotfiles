@@ -35,7 +35,7 @@
   conflictstyle = diff3
 [push]
   # Push current branch even if you've never pushed it before
-  default = simple
+  default = current
   followTags = true
 [rerere]
   enabled = 1
