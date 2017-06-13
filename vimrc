@@ -113,6 +113,7 @@ colorscheme solarized
 runtime macros/matchit.vim
 "visual autocomplete for command menu
 set wildmenu
+set wildmode=full
 "set lazyredraw          " redraw only when we need to.
 "Store temp files in a central spot
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
@@ -240,8 +241,8 @@ inoremap \fn <C-R>=expand("%:t:r")<CR>
 "
 " Visual {
 set showmatch "Show matching brackets
-set number
 set relativenumber
+set synmaxcol=200
 " }
 " Searching {
 set hlsearch                    " hilight searches, map below to clear
@@ -289,7 +290,7 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ -g ""'
 
 nmap <leader>p :set paste!<CR>:set paste?<CR>
-nmap \n :setlocal number!<CR>:setlocal number?<CR>
+nmap \n :setlocal relativenumber!<CR>:setlocal relativenumber?<CR>
 
 nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
 nnoremap <leader>= :wincmd =<cr>
