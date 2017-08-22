@@ -1,6 +1,6 @@
-log
-tags
-tmp
+log/*
+tags/*
+tmp/*
 doc
 public/assets
 public/packs
