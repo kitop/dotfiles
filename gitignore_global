@@ -2,4 +2,7 @@ tags
 .vimrc
 .ruby-version
 .npmrc
+.tool-versions
 elm-stuff
+log
+config/database.yml
