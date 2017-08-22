@@ -1,0 +1,20 @@
+" Remove trailing whitespace on save for specific filetypes.
+
+au BufWritePre *.{rb,rake,js,coffee,haml,css,scss,ex,exs,elm} :call StripTrailingWhitespace()
+
+" Removes all extraneous whitespace in the file
+function! StripTrailingWhitespace()
+    " Save the current search and cursor position
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+
+    " Strip the whitespace
+    %s/\s\+$//e
+
+    " Restore the saved search and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+
+" vim:ft=vim

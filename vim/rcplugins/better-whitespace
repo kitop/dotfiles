@@ -1,8 +1,0 @@
-" Better Whitespace - Highlight trailing whitespace and provide command to kill
-
-Plug 'ntpeters/vim-better-whitespace'
-
-" Remove trailing whitespace on save for certain filetypes
-autocmd FileType javascript,c,cpp,java,html,ruby,elixir  autocmd BufEnter <buffer> EnableStripWhitespaceOnSave
-
-" vim:ft=vim
