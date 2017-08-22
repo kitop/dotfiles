@@ -154,9 +154,5 @@ export PATH=./node_modules/.bin:$PATH
 export PATH=~/.bin:$PATH
 export PATH=./bin:$PATH
 
-if [ -f ~/.nvm/nvm.sh ]; then
-    . ~/.nvm/nvm.sh
-fi
-
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
