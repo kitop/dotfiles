@@ -1,6 +1,8 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+let g:has_async = v:version >= 800 || has('nvim')
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -31,7 +33,7 @@ Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'rking/ag.vim'
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 Plugin 'sunaku/vim-ruby-minitest'
 Plugin 'janko-m/vim-test'
 Plugin 'tomtom/tlib_vim'
@@ -45,6 +47,9 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'vim-scripts/logstash.vim'
 Plugin 'vim-scripts/matchit.zip'
 Plugin 'vim-scripts/tComment'
+if g:has_async
+  Plugin 'w0rp/ale'
+endif
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -54,6 +59,17 @@ let g:snipMate.scope_aliases = {}
 let g:snipMate.scope_aliases['javascript'] = 'javascript,html'
 
 let g:elm_format_autosave = 1
+
+if g:has_async
+  let g:ale_lint_on_text_changed = 0
+  let g:ale_lint_on_enter = 0
+  autocmd InsertEnter * call ale#Lint()
+  autocmd InsertLeave * call ale#Lint()
+
+  " Move between linting errors
+  nnoremap ]r :ALENextWrap<CR>
+  nnoremap [r :ALEPreviousWrap<CR>
+endif
 
 augroup vimrcEx
   autocmd!
@@ -139,14 +155,26 @@ set backspace=2
 " Disable Markdown Folding
 let g:vim_markdown_folding_disabled=1
 
-let g:syntastic_ruby_mri_exe='~/.rbenv/shims/ruby'
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_eslint_exec = 'eslint_d'
+"let g:syntastic_ruby_mri_exe='~/.rbenv/shims/ruby'
+"let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_eslint_exec = 'eslint_d'
 
 let g:jsx_ext_required = 0 
 
-
 autocmd VimResized * :wincmd =
+
+function! ALELinterStatus() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+
+    return l:counts.total == 0 ? 'OK' : printf(
+    \   '%dW %dE',
+    \   all_non_errors,
+    \   all_errors
+    \)
+endfunction
 
 """" STATUSLINE - based on https://github.com/christoomey/dotfiles/blob/master/vim/rcfiles/statusline#L54
 set laststatus=2 " Always show the statusline
@@ -162,7 +190,7 @@ set stl=%*                       " Normal statusline highlight
 set stl+=%{InsertSpace()}        " Put a leading space in
 set stl+=%2*                     " Red highlight
 set stl+=%m                      " Modified flag
-set stl+=%*                      " Normal 
+set stl+=%*                      " Normal
 set stl+=%t                      " Filename
 set stl+=%1*                     " Yellow highlight
 set stl+=%{HasPaste()}           " Red show paste
@@ -171,6 +199,9 @@ set stl+=%*                      " Return to normal stl hilight
 set stl+=%r                      " Readonly flag
 set stl+=%h                      " Help file flag
 set stl+=\ %y                    " Filetype
+if g:has_async
+  set stl+=\ %{ALELinterStatus()} " Linter messages
+endif
 
 set stl+=%=                      " Right align from here on
 set stl+=\ \ Col:%c              " Column number
