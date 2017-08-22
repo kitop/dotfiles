@@ -2,7 +2,7 @@
 
 Plug 'ntpeters/vim-better-whitespace'
 
-" Remove trailing whitespace on save for files not in the blacklist
-autocmd BufEnter * if index(g:better_whitespace_filetypes_blacklist, &ft) < 0 | exec 'EnableStripWhitespaceOnSave' | endif
+" Remove trailing whitespace on save for certain filetypes
+autocmd FileType javascript,c,cpp,java,html,ruby,elixir  autocmd BufEnter <buffer> EnableStripWhitespaceOnSave
 
 " vim:ft=vim

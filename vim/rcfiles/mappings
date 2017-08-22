@@ -1,0 +1,69 @@
+" Mappings
+" --------
+
+" Switch between the last two files
+nnoremap <leader><leader> <C-^>
+
+" Emacs-like beginning and end of line.
+imap <C-e> <c-o>$
+imap <C-a> <c-o>^
+map <C-a>  <Home>
+map <C-e>  <End>
+
+" Make j & k linewise
+" turn off linewise keys -- normally, the `j' and `k' keys move the cursor down
+" one entire line. with line wrapping on, this can cause the cursor to actually
+" skip a few lines on the screen because it's moving from line N to line N+1 in
+" the file. I want this to act more visually -- I want `down' to mean the next
+" line on the screen
+map j gj
+map k gk
+
+"Make Y yank to end of line (like D, or C)
+nmap Y y$
+
+" Don't use arrow keys
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
+
+" use w!! to sudo :w  a file that we opened without su privs
+cmap w!! w !sudo tee % >/dev/null
+
+" Do not use <Ctrl-c> to break out to normal mode
+" Use C-Space to Esc out of any mode
+nnoremap <C-Space> <Esc>:noh<CR>
+vnoremap <C-Space> <Esc>gV
+onoremap <C-Space> <Esc>
+cnoremap <C-Space> <C-c>
+inoremap <C-Space> <Esc>`^
+" Terminal sees <C-@> as <C-space> WTF, but ok
+nnoremap <C-@> <Esc>:noh<CR>
+vnoremap <C-@> <Esc>gV
+onoremap <C-@> <Esc>
+cnoremap <C-@> <C-c>
+inoremap <C-@> <Esc>`^
+
+" inserts the current filename without the extension at the cursor position
+inoremap \fn <C-R>=expand("%:t:r")<CR>
+
+map <C-Right> :tabn<CR>
+map <C-Left> :tabp<CR>
+map <leader>z :tabedit<Space>
+map <leader>m :CtrlP<CR>
+map <leader>. :CtrlPTag<cr>
+
+nmap <leader>p :set paste!<CR>:set paste?<CR>
+nmap \n :setlocal relativenumber!<CR>:setlocal relativenumber?<CR>
+
+nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
+nnoremap <leader>= :wincmd =<cr>
+
+
+" Edit another file -- important to keep that trailing space
+map <Leader>e :e 
+map <Leader>s :split 
+map <Leader>v :vnew 
+
+" vim:ft=vim

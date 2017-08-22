@@ -1,0 +1,56 @@
+" General Vim Settings
+" --------------------
+
+filetype plugin indent on
+
+set encoding=utf-8
+set hidden " Don't require saving before closing a buffer
+syntax enable " sintax highlighting
+set ruler " row and column of the cursor
+set cursorline " higlight current line
+set showmode " see the actual mode
+set showcmd " see the actual command
+set title " set terminal title
+set visualbell " no audible bell, just flash the screen
+set pastetoggle=<F12> " Toggle paste mode while in insert mode with F12
+set scrolloff=3 " start the scrolling three lines before the border
+set backspace=2 " make backspace work like most other apps
+
+"visual autocomplete for command menu
+set wildmenu
+set wildmode=full
+
+"Store temp files in a central spot
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+
+" Open new split panes to right and bottom, which feels more natural than
+" vim’s default:
+set splitbelow
+set splitright
+
+" Visual {
+set showmatch " Show matching brackets
+set relativenumber
+set synmaxcol=200
+" }
+
+" Searching {
+set hlsearch                    " hilight searches, map below to clear
+set incsearch                   " do incremental searching
+set ignorecase                  " Case insensitive...
+set smartcase                   " ...except if you use UCase
+" }
+
+" Indenting {
+set autoindent
+set smarttab
+set tabstop=2
+set shiftwidth=2
+set shiftround
+set softtabstop=2
+set expandtab
+set list listchars=tab:\ \ ,trail:·
+" }
+
+" vim:ft=vim
