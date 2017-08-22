@@ -1,0 +1,5 @@
+" Vim Tmux Runner - Connect Vim and tmux to allow running lines & commands
+
+Plug 'christoomey/vim-tmux-runner'
+
+" vim:ft=vim

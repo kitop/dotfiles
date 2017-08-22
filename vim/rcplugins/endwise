@@ -1,0 +1,5 @@
+" wisely add "end" in ruby, endfunction/endif/more in vim script, etc
+
+Plug 'tpope/vim-endwise'
+
+" vim:ft=vim

@@ -1,0 +1,57 @@
+" STATUSLINE - based on https://github.com/christoomey/dotfiles/blob/master/vim/rcfiles/statusline#L54
+
+set laststatus=2 " Always show the statusline
+set statusline= " Clear the statusline for vimrc reloads
+
+"define 3 custom highlight groups
+hi User1 ctermbg=lightgray ctermfg=yellow guifg=orange guibg=#444444 cterm=bold gui=bold
+hi User2 ctermbg=lightgray ctermfg=red guifg=#dc143c guibg=#444444 gui=none
+hi User3 ctermbg=lightgray ctermfg=red guifg=#ffff00 guibg=#444444 gui=bold
+
+set stl=%*                       " Normal statusline highlight
+set stl+=%{InsertSpace()}        " Put a leading space in
+set stl+=%2*                     " Red highlight
+set stl+=%m                      " Modified flag
+set stl+=%*                      " Normal
+set stl+=%t                      " Filename
+set stl+=%1*                     " Yellow highlight
+set stl+=%{HasPaste()}           " Red show paste
+set stl+=%*                      " Return to normal stl hilight
+
+set stl+=%r                      " Readonly flag
+set stl+=%h                      " Help file flag
+set stl+=\ %y                    " Filetype
+set stl+=\ %{ALELinterStatus()} " Linter messages
+
+set stl+=%=                      " Right align from here on
+set stl+=\ \ Col:%c              " Column number
+set stl+=\ \ Line:%l/%L          " Line # / total lines
+set stl+=\ \ %P%{InsertSpace()}  " Single space buffer
+
+function! InsertSpace()
+    " For adding trailing spaces onto statusline
+    return ' '
+endfunction
+
+function! HasPaste()
+    if &paste
+        return '[paste]'
+    else
+        return ''
+    endif
+endfunction
+
+function! ALELinterStatus() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+
+    return l:counts.total == 0 ? 'OK' : printf(
+    \   '%dW %dE',
+    \   all_non_errors,
+    \   all_errors
+    \)
+endfunction
+
+" vim:ft=vim

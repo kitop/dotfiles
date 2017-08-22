@@ -1,0 +1,7 @@
+" http://elm-lang.org/
+
+Plug 'ElmCast/elm-vim'
+
+let g:elm_format_autosave = 1
+
+" vim:ft=vim

@@ -1,0 +1,5 @@
+" Text filtering and alignment
+
+Plug 'godlygeek/tabular'
+
+" vim:ft=vim

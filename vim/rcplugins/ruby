@@ -1,0 +1,5 @@
+" Ruby and Rails plugins
+
+Plug 'vim-ruby/vim-ruby'
+Plug 'sunaku/vim-ruby-minitest'
+Plug 'tpope/vim-rails'

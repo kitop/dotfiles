@@ -1,0 +1,5 @@
+" Comment and uncomment chunks of code with a shortcut
+
+Plug 'vim-scripts/tComment'
+
+" vim:ft=vim

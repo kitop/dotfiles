@@ -1,0 +1,8 @@
+" Fire up the browser, opening the file and LOC of the current buffer in GitHub.
+
+Plug 'tonchis/vim-to-github'
+
+let g:to_github_clip_command = 'pbcopy'
+let g:to_github_clipboard = 1
+
+" vim:ft=vim

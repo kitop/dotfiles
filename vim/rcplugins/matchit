@@ -1,0 +1,5 @@
+" extended % matching for HTML, LaTeX, and many other languages
+
+Plug 'vim-scripts/matchit.zip'
+
+" vim:ft=vim

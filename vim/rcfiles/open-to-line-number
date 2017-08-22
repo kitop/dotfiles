@@ -1,0 +1,12 @@
+" Open to linenumber
+
+function! OpenToLineNumber()
+  let filename=expand("%")
+  let parts=split(filename, ":")
+  exec ":e " . parts[0]
+  exec ":" . parts[1]
+  redraw!
+endfunction
+autocmd BufNewFile,BufEnter,BufRead *:* nested call OpenToLineNumber()
+
+" vim:ft=vim

@@ -1,0 +1,12 @@
+" Snipmate + Snippets Snippet manager
+
+Plug 'MarcWeber/vim-addon-mw-utils' " required by snipmate
+Plug 'tomtom/tlib_vim'              " required by snipmate
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+
+let g:snipMate = get(g:, 'snipMate', {}) " Allow for vimrc re-sourcing
+let g:snipMate.scope_aliases = {}
+let g:snipMate.scope_aliases['javascript'] = 'javascript,html'
+
+" vim:ft=vim

@@ -1,0 +1,12 @@
+" Wrapper for running tests on different granularities.
+
+Plug 'janko-m/vim-test'
+
+let test#strategy = "vtr"
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>a :TestFile<CR>
+nmap <silent> <leader>r :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
+
+" vim:ft=vim

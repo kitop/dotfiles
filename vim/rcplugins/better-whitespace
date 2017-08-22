@@ -1,0 +1,8 @@
+" Better Whitespace - Highlight trailing whitespace and provide command to kill
+
+Plug 'ntpeters/vim-better-whitespace'
+
+" Remove trailing whitespace on save for files not in the blacklist
+autocmd BufEnter * if index(g:better_whitespace_filetypes_blacklist, &ft) < 0 | exec 'EnableStripWhitespaceOnSave' | endif
+
+" vim:ft=vim

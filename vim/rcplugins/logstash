@@ -1,0 +1,5 @@
+" Elastic's logstash plugin
+
+Plug 'vim-scripts/logstash.vim'
+
+" vim:ft=vim
