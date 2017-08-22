@@ -62,10 +62,6 @@ if [ -f ~/.secrets ]; then
     . ~/.secrets
 fi
 
-if [ -f ~/.nvm/nvm.sh ]; then
-    . ~/.nvm/nvm.sh
-fi
-# ./node_modules should be before nvm in the path
 export PATH=./node_modules/.bin:$PATH
 
 export PATH=/usr/local/bin:$PATH
@@ -88,6 +84,7 @@ export EDITOR="vim"
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-export DOCKER_HOST=tcp://192.168.99.100:2376
-export DOCKER_CERT_PATH=/Users/kito/.docker/machine/machines/default
-export DOCKER_TLS_VERIFY=1
+
+. $HOME/.asdf/asdf.sh
+
+. $HOME/.asdf/completions/asdf.bash
