@@ -6,3 +6,4 @@ tags
 elm-stuff
 log
 config/database.yml
+.env
