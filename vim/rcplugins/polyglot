@@ -1,0 +1,7 @@
+" Polyglot - A collection of language packs for Vim.
+
+Plug 'sheerun/vim-polyglot'
+
+let g:polyglot_disabled = ['css', 'elixir', 'elm', 'javascript', 'markdown', 'ruby']
+
+" vim:ft=vim
