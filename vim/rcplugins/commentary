@@ -1,5 +1,5 @@
 " Comment and uncomment chunks of code with a shortcut
 
-Plug 'vim-scripts/tComment'
+Plug 'tpope/vim-commentary'
 
 " vim:ft=vim
