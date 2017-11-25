@@ -2,10 +2,10 @@
 
 Plug 'w0rp/ale'
 
-let g:ale_lint_on_text_changed = 0
+" Only run linters when saving
+let g:ale_lint_on_text_changed = 'never'
+" do not run linters when opening a file
 let g:ale_lint_on_enter = 0
-autocmd InsertEnter * call ale#Lint()
-autocmd InsertLeave * call ale#Lint()
 
 " Move between linting errors
 nnoremap ]r :ALENextWrap<CR>
