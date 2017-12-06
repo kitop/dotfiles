@@ -1,9 +1,17 @@
 " JavaScript - JS syntax and indent settings, along with JSX support
 
-Plug 'pangloss/vim-javascript'
+Plug 'othree/yajs.vim'
+Plug 'othree/es.next.syntax.vim'
 Plug 'mxw/vim-jsx'
 Plug 'styled-components/vim-styled-components'
+Plug 'mattn/emmet-vim'
 
 let g:jsx_ext_required = 0
+let g:user_emmet_leader_key = '<Tab>'
+let g:user_emmet_settings = {
+  \  'javascript.jsx' : {
+    \      'extends' : 'jsx',
+    \  },
+  \}
 
 " vim:ft=vim
