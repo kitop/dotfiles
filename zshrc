@@ -57,10 +57,6 @@ fi
 # pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
-. $HOME/.asdf/asdf.sh
-
-. $HOME/.asdf/completions/asdf.bash
-
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
@@ -69,15 +65,18 @@ if [ -f ~/.secrets ]; then
     . ~/.secrets
 fi
 
-export PATH=./node_modules/.bin:$PATH
 
 export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/.rbenv/shims:$PATH
-export PATH=~/.bin:$PATH
-export PATH=./bin:$PATH
 export PATH=/usr/local/heroku/bin:$PATH
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
+export PATH=~/.bin:$PATH
+
+. $HOME/.asdf/asdf.sh
+
+export PATH=./bin:$PATH
+export PATH=./node_modules/.bin:$PATH
+
+. $HOME/.asdf/completions/asdf.bash
 
 if [ -f /usr/local/share/zsh/site-functions ]; then
   . /usr/local/share/zsh/site-functions
@@ -91,3 +90,4 @@ export EDITOR="vim"
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+export PATH="/usr/local/opt/erlang@19/bin:$PATH"
