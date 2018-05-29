@@ -61,22 +61,19 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-if [ -f ~/.secrets ]; then
-    . ~/.secrets
-fi
-
+export GOPATH=$HOME/go
 
 export PATH=/usr/local/bin:$PATH
+export PATH=$PATH:$GOPATH/bin
 export PATH=$HOME/.rbenv/shims:$PATH
 export PATH=/usr/local/heroku/bin:$PATH
 export PATH=~/.bin:$PATH
 
 . $HOME/.asdf/asdf.sh
-
-export PATH=./bin:$PATH
-export PATH=./node_modules/.bin:$PATH
-
 . $HOME/.asdf/completions/asdf.bash
+
+export PATH=./node_modules/.bin:$PATH
+export PATH=./bin:$PATH
 
 if [ -f /usr/local/share/zsh/site-functions ]; then
   . /usr/local/share/zsh/site-functions
@@ -85,9 +82,10 @@ fi
 # Customize to your needs...
 export EDITOR="vim"
 
-
 #fixing strange git errors
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-export PATH="/usr/local/opt/erlang@19/bin:$PATH"
+if [ -f ~/.secrets ]; then
+    . ~/.secrets
+fi
