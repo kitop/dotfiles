@@ -43,19 +43,15 @@ HIST_IGNORE_SPACE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew gem git heroku mix osx zsh-syntax-highlighting)
+plugins=(brew docker gem git heroku mix osx zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
-
 
 # rbenv
 if [ -d ~/.rbenv ]; then
   export PATH=$HOME/.rbenv/bin:$PATH
   eval "$(rbenv init - zsh)"
 fi
-
-# pyenv
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
