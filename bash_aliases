@@ -33,6 +33,8 @@ alias irb='irb --readline -r irb/completion'
 alias v='vim -p'
 alias vi='vim'
 
+alias bell='echo \\a'
+
 man() {
     env \
       LESS_TERMCAP_mb=$(printf "\e[1;31m") \
