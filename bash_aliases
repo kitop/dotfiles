@@ -38,6 +38,12 @@ alias top="sudo htop"
 alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 alias help='tldr'
 
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+
+alias paste=pbpaste
+# it's useful to see what I've just copied, ie. `cat foo | copy`
+alias copy='pbcopy; pbpaste'
+
 alias bell='echo \\a'
 
 man() {
