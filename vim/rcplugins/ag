@@ -1,7 +1,7 @@
 
 Plug 'mileszs/ack.vim'
 
-let g:ackprg = 'ag --vimgrep --smart-case'
+let g:ackprg = 'rg --vimgrep --smart-case --no-heading'
 
 cnoreabbrev ag Ack
 
