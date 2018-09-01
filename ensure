@@ -21,6 +21,7 @@ ensure package fd
 ensure package diff-so-fancy
 ensure package csvkit
 ensure package noti
+ensure package httpie
 
 # ensure package mysql --service
 # ensure package redis --service
