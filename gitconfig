@@ -1,10 +1,13 @@
 [user]
-	name = Esteban Pastorino
-	email = ejpastorino@gmail.com
+  name = Esteban Pastorino
+  email = ejpastorino@gmail.com
 [color]
-	ui = true
+  ui = true
 [color "diff"]
   meta = yellow bold
+[pager]
+  diff = diff-so-fancy | less --tabs=1,5 -RFX
+  show = diff-so-fancy | less --tabs=1,5 -RFX
 [alias]
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   lgf = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
@@ -41,8 +44,8 @@
   enabled = 1
 [status]
   showUntrackedFiles = all
-[transfer]
-  fsckobjects = true
+#[transfer]
+#  fsckobjects = true
 
 [url "git@heroku.com:"]
   insteadOf = heroku:
@@ -53,4 +56,8 @@
   # Read-only
   insteadOf = gh:
 [core]
-	excludesfile = ~/.gitignore_global
+  excludesfile = ~/.gitignore_global
+[include]
+  path = /Users/kito/dev/netlify/dev-bootstrap/config.include
+[credential]
+  helper = store

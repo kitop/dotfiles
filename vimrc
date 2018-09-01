@@ -17,6 +17,8 @@ function! s:SourceConfigFilesIn(directory)
   endfor
 endfunction
 
+set rtp+=/usr/local/opt/fzf
+
 call plug#begin('~/.vim/bundle')
 call s:SourceConfigFilesIn('rcplugins')
 call plug#end()

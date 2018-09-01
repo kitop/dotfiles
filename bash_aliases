@@ -32,6 +32,11 @@ alias fix-camera='sudo killall VDCAssistant'
 alias irb='irb --readline -r irb/completion'
 alias v='vim -p'
 alias vi='vim'
+alias cat='bat'
+alias ping='prettyping --nolegend'
+alias top="sudo htop"
+alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
+alias help='tldr'
 
 alias bell='echo \\a'
 

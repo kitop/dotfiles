@@ -10,25 +10,35 @@ ensure package pow
 ensure package vim
 ensure package wget
 ensure package zsh
+ensure package bat
+ensure package prettyping
+ensure package htop
+ensure package ncdu
+ensure package tldr
+ensure package ripgrep
+ensure package jq
+ensure package fd
+ensure package diff-so-fancy
+ensure package csvkit
+ensure package noti
 
-ensure package mysql --service
-ensure package redis --service
-# you need Java installed for this
-ensure package elasticsearch --service
+# ensure package mysql --service
+# ensure package redis --service
+# # you need Java installed for this
+# ensure package elasticsearch --service
 
 ensure app iterm2
 ensure app google-chrome --copy
 ensure app firefox
 ensure app slack
-ensure app limechat
+# ensure app limechat
 ensure app spotify
-ensure app sequel-pro
+# ensure app sequel-pro
 ensure app imageoptim
-ensure app gifs
 
 # custom
 ensure zsh
 ensure oh-my-zsh
 ensure rbenv
-ensure rbenv-ruby "2.2.3"
+ensure rbenv-ruby "2.5.1"
 ensure vim-vundle
