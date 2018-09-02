@@ -70,6 +70,7 @@ export PATH=~/.bin:$PATH
 
 export PATH=./node_modules/.bin:$PATH
 export PATH=./bin:$PATH
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 if [ -f /usr/local/share/zsh/site-functions ]; then
   . /usr/local/share/zsh/site-functions
