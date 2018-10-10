@@ -15,6 +15,7 @@ for src in $(find $PWD -maxdepth 1)
             $file != '.'                     &&
             $file != '..'                    &&
             $file != '.gitignore'            &&
+            $file != '.gitmodules'           &&
             $file != $me
          ]]
          then
