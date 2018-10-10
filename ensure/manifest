@@ -19,7 +19,6 @@ ensure package mosh
 ensure package ncdu
 ensure package noti
 ensure package parallel
-ensure package pow
 ensure package prettyping
 ensure package readline
 ensure package reattach-to-user-namespace
