@@ -3,43 +3,51 @@
 ensure brew
 ensure cask
 
-ensure package the_silver_searcher
-ensure package tmux
-ensure package mobile-shell
+ensure package bat
+ensure package csvkit
+ensure package diff-so-fancy
+ensure package fd
+ensure package git
+ensure package htop
+ensure package httpie
+ensure package jq
+ensure package libxml2
+ensure package libxslt
+ensure package libyaml
+ensure package mosh
+ensure package ncdu
+ensure package noti
+ensure package parallel
 ensure package pow
+ensure package prettyping
+ensure package readline
+ensure package reattach-to-user-namespace
+ensure package ripgrep
+ensure package the_silver_searcher
+ensure package tldr
+ensure package tmux
 ensure package vim
 ensure package wget
+ensure package yarn
 ensure package zsh
-ensure package bat
-ensure package prettyping
-ensure package htop
-ensure package ncdu
-ensure package tldr
-ensure package ripgrep
-ensure package jq
-ensure package fd
-ensure package diff-so-fancy
-ensure package csvkit
-ensure package noti
-ensure package httpie
 
-# ensure package mysql --service
-# ensure package redis --service
-# # you need Java installed for this
-# ensure package elasticsearch --service
-
-ensure app iterm2
-ensure app google-chrome --copy
+ensure app dropbox
 ensure app firefox
-ensure app slack
-# ensure app limechat
-ensure app spotify
-# ensure app sequel-pro
+ensure app flux
+ensure app focus
+ensure app google-chrome --copy
 ensure app imageoptim
+ensure app iterm2
+ensure app slack
+ensure app spotify
+
+ensure git git@github.com:kitop/dotfiles.git ~/dotfiles
 
 # custom
 ensure zsh
 ensure oh-my-zsh
 ensure rbenv
-ensure rbenv-ruby "2.5.1"
+ensure ruby "2.5.1"
 ensure vim-vundle
+
+ensure shell zsh
