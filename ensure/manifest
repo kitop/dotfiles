@@ -32,6 +32,7 @@ ensure package yarn
 ensure package zsh
 
 ensure app dropbox
+enusre app docker
 ensure app firefox
 ensure app flux
 ensure app focus
