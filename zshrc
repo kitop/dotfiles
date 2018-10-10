@@ -65,8 +65,7 @@ export PATH=$HOME/.rbenv/shims:$PATH
 export PATH=/usr/local/heroku/bin:$PATH
 export PATH=~/.bin:$PATH
 
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
+source /usr/local/opt/asdf/asdf.sh
 
 export PATH=./node_modules/.bin:$PATH
 export PATH=./bin:$PATH
