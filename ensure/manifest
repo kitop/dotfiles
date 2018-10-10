@@ -21,9 +21,11 @@ ensure package ncdu
 ensure package noti
 ensure package parallel
 ensure package prettyping
+ensure package rbenv
 ensure package readline
 ensure package reattach-to-user-namespace
 ensure package ripgrep
+ensure package ruby-build
 ensure package the_silver_searcher
 ensure package tldr
 ensure package tmux
@@ -47,7 +49,6 @@ ensure app visual-studio-code
 # custom
 ensure zsh
 ensure oh-my-zsh
-ensure rbenv
 ensure ruby "2.5.1"
 ensure vim-vundle
 
