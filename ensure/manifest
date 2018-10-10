@@ -5,6 +5,7 @@ ensure cask
 
 ensure package bat
 ensure package csvkit
+ensure package ctags
 ensure package diff-so-fancy
 ensure package fd
 ensure package git
