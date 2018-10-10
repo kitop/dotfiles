@@ -41,6 +41,7 @@ ensure app imageoptim
 ensure app iterm2
 ensure app slack
 ensure app spotify
+ensure app visual-studio-code
 
 # custom
 ensure zsh
