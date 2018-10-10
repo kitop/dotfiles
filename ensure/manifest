@@ -41,8 +41,6 @@ ensure app iterm2
 ensure app slack
 ensure app spotify
 
-ensure git git@github.com:kitop/dotfiles.git ~/dotfiles
-
 # custom
 ensure zsh
 ensure oh-my-zsh
