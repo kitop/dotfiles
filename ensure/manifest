@@ -14,6 +14,7 @@ ensure package jq
 ensure package libxml2
 ensure package libxslt
 ensure package libyaml
+ensure package go
 ensure package mosh
 ensure package ncdu
 ensure package noti
