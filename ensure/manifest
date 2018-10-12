@@ -25,6 +25,7 @@ ensure package rbenv
 ensure package readline
 ensure package reattach-to-user-namespace
 ensure package ripgrep
+ensure package rpl
 ensure package ruby-build
 ensure package the_silver_searcher
 ensure package tldr
