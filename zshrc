@@ -59,6 +59,7 @@ fi
 
 export GOPATH=$HOME/go
 
+export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=$PATH:$GOPATH/bin
 export PATH=$HOME/.rbenv/shims:$PATH
