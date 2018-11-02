@@ -42,6 +42,7 @@ ensure app firefox
 ensure app flux
 ensure app focus
 ensure app google-chrome --copy
+ensure app grammarly
 ensure app imageoptim
 ensure app iterm2
 ensure app ngrok
