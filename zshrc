@@ -78,6 +78,7 @@ fi
 
 # Customize to your needs...
 export EDITOR="vim"
+export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
 #fixing strange git errors
 export LC_CTYPE=en_US.UTF-8
