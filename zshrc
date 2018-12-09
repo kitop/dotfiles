@@ -70,6 +70,7 @@ source /usr/local/opt/asdf/asdf.sh
 
 export PATH=./node_modules/.bin:$PATH
 export PATH=./bin:$PATH
+export PATH="$PATH:/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin"
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 if [ -f /usr/local/share/zsh/site-functions ]; then
