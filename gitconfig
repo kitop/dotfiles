@@ -20,12 +20,15 @@
   st = status -sb
   update = add -u
   unstage = reset HEAD
+  uncommit = reset --soft HEAD^
   new = ls-files --others --exclude-standard
   added = diff --cached --name-only
 
   ignore = update-index --assume-unchanged
   unignore = update-index --no-assume-unchanged
   ignored = !git ls-files -v | grep "^[[:lower:]]"
+
+  ctags = "!.git/hooks/ctags"
 
 [branch]
   autosetuprebase = always
@@ -62,3 +65,5 @@
   path = /Users/kito/dev/netlify/dev-bootstrap/config.include
 [credential]
   helper = store
+[init]
+	templatedir = ~/.git_templates
