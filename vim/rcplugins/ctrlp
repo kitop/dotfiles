@@ -5,6 +5,7 @@ Plug 'kien/ctrlp.vim'
 let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ --ignore .git
       \ --ignore .DS_Store
+      \ --ignore test/vcr_cassettes
       \ -g ""'
 
 " vim:ft=vim
