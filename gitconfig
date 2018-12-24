@@ -29,6 +29,7 @@
   ignored = !git ls-files -v | grep "^[[:lower:]]"
 
   ctags = "!.git/hooks/ctags"
+  fixup = "commit --amend --no-edit"
 
 [branch]
   autosetuprebase = always
