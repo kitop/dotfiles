@@ -47,34 +47,32 @@ plugins=(brew docker gem git heroku mix osx zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
+source /usr/local/opt/asdf/asdf.sh
 # rbenv
 if [ -d ~/.rbenv ]; then
   export PATH=$HOME/.rbenv/bin:$PATH
   eval "$(rbenv init - zsh)"
 fi
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
 export GOPATH=$HOME/go
 
 export PATH=/usr/local/sbin:$PATH
-export PATH=/usr/local/bin:$PATH
-export PATH=$PATH:$GOPATH/bin
-export PATH=$HOME/.rbenv/shims:$PATH
 export PATH=/usr/local/heroku/bin:$PATH
 export PATH=~/.bin:$PATH
-
-source /usr/local/opt/asdf/asdf.sh
-
 export PATH=./node_modules/.bin:$PATH
-export PATH=./bin:$PATH
+export PATH=".git/safe/../../bin:$PATH"
+
+export PATH=$PATH:$GOPATH/bin
 export PATH="$PATH:/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin"
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 if [ -f /usr/local/share/zsh/site-functions ]; then
   . /usr/local/share/zsh/site-functions
+fi
+
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
 fi
 
 # Customize to your needs...

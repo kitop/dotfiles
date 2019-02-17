@@ -7,15 +7,6 @@
 #[ -z "$PS1" ] && return
 if [[ -n $PS1 ]] ; then
 
-_gemset() {
-  if [[ -z $GS_NAME ]]; then
-    echo ""
-  else
-    echo "$GS_NAME "
-  fi
-}
-
-
 export EDITOR="vim"
 
 # don't put duplicate lines in the history. See bash(1) for more options
@@ -99,18 +90,8 @@ alias bash_reload='source ~/.bashrc'
 if [ -x /usr/bin/dircolors ]; then
     eval "`dircolors -b`"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    #alias grep='grep --color=auto'
-    #alias fgrep='fgrep --color=auto'
-    #alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
-#alias ll='ls -l'
-#alias la='ls -A'
-#alias l='ls -CF'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -120,12 +101,6 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 source ~/.git-completion.sh
-
-[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
-[[ -r $rvm_path/scripts/completion ]] && source $rvm_path/scripts/completion
-if [ -d ~/.rvm ]; then
-  PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-fi
 
 # rbenv
 if [ -d ~/.rbenv ]; then
@@ -138,20 +113,13 @@ if [ -x /usr/local/bin/brew ]; then
   PATH=/usr/local/bin:$PATH
 fi
 
-#CUSTOM FUNCTIONS
-svnmod(){
-	svn status | grep ^[MAD]
-}
-
-  #fixing strange git errors
+#fixing strange git errors
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 calc(){ awk "BEGIN{ print $* }" ;}
 fi
 
-export PATH=./node_modules/.bin:$PATH
-export PATH=~/.bin:$PATH
 export PATH=./bin:$PATH
 
 ### Added by the Heroku Toolbelt
