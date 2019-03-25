@@ -3,7 +3,7 @@
 Plug 'othree/yajs.vim'
 Plug 'othree/es.next.syntax.vim'
 Plug 'mxw/vim-jsx'
-Plug 'styled-components/vim-styled-components'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'mattn/emmet-vim'
 Plug 'oesse/vim-nodegf'
 
