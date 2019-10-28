@@ -65,6 +65,6 @@
 [include]
   path = /Users/kito/dev/netlify/dev-bootstrap/config.include
 [credential]
-  helper = store
+	helper = store
 [init]
 	templatedir = ~/.git_templates

@@ -1,4 +1,3 @@
 --glob=!.git/*
 --glob=!test/vcr_cassettes/**/*.yml
 --smart-case
-
