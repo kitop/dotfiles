@@ -1,8 +1,9 @@
 
 Plug 'mileszs/ack.vim'
 
-let g:ackprg = 'ag --vimgrep --smart-case'
+let g:ackprg = 'rg --vimgrep --smart-case'
 
 cnoreabbrev ag Ack
+cnoreabbrev rg Ack
 
 " vim:ft=vim
