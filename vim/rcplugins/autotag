@@ -1,5 +1,5 @@
 " Automatically discover and "properly" update ctags files on save
 
-Plug 'craigemery/vim-autotag'
+" Plug 'craigemery/vim-autotag'
 
 " vim:ft=vim
