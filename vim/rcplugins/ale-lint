@@ -1,6 +1,6 @@
 " ALE - Asynchronous linting engine
 
-Plug 'dense-analysis/ale'
+Plug 'w0rp/ale'
 
 " Only run linters when saving
 let g:ale_lint_on_text_changed = 'never'
@@ -10,6 +10,5 @@ let g:ale_lint_on_enter = 0
 " Move between linting errors
 nnoremap ]r :ALENextWrap<CR>
 nnoremap [r :ALEPreviousWrap<CR>
-nnoremap <C-]> :ALEGoToDefinition<CR>
 
 " vim:ft=vim
