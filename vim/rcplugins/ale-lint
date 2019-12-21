@@ -1,6 +1,6 @@
 " ALE - Asynchronous linting engine
 
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 
 " Only run linters when saving
 let g:ale_lint_on_text_changed = 'never'
