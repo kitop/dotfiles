@@ -1,5 +1,0 @@
-" Syntax highlighting for cuba apps
-
-Plug 'kitop/vim-cuba'
-
-" vim:ft=vim
