@@ -1,4 +1,5 @@
 {
   "solargraph.definitions": true,
-  "solargraph.diagnostics": false
+  "solargraph.diagnostics": false,
+  "suggest.autoTrigger": "none"
 }
