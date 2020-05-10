@@ -8,3 +8,4 @@ log
 config/database.yml
 .env
 .solargraph.yml
+node_modules
