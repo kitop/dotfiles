@@ -47,7 +47,7 @@ plugins=(brew docker gem git heroku mix osx zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
-source /usr/local/opt/asdf/asdf.sh
+. $(brew --prefix asdf)/asdf.sh
 # rbenv
 if [ -d ~/.rbenv ]; then
   export PATH=$HOME/.rbenv/bin:$PATH
