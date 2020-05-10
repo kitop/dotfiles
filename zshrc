@@ -86,3 +86,6 @@ export LC_ALL=en_US.UTF-8
 if [ -f ~/.secrets ]; then
     . ~/.secrets
 fi
+
+# The next line updates PATH for Netlify's Git Credential Helper.
+if [ -f '/Users/kito/.netlify/helper/path.zsh.inc' ]; then source '/Users/kito/.netlify/helper/path.zsh.inc'; fi

@@ -69,3 +69,7 @@
 	helper = store
 [init]
 	templatedir = ~/.git_templates
+
+# This next lines include Netlify's Git Credential Helper configuration in your Git configuration.
+[include]
+  path = /Users/kito/.netlify/helper/git-config
