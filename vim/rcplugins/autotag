@@ -1,7 +1,5 @@
 " Automatically discover and "properly" update ctags files on save
 
-" Commented due to issue with python 3.8, see:
-" https://github.com/craigemery/vim-autotag/issues/33
-" Plug 'craigemery/vim-autotag'
+Plug 'craigemery/vim-autotag'
 
 " vim:ft=vim
