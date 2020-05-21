@@ -32,6 +32,7 @@ set splitright
 " Visual {
 set showmatch " Show matching brackets
 set relativenumber
+set number
 set synmaxcol=400
 " }
 
