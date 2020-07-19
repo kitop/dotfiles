@@ -1,8 +1,8 @@
 # vim: set ft=sh
 
 ensure brew
-ensure cask
 
+ensure package asdf
 ensure package bat
 ensure package csvkit
 ensure package ctags
@@ -36,6 +36,7 @@ ensure package wget
 ensure package yarn
 ensure package zsh
 
+ensure app bettertouchtool
 ensure app dropbox
 enusre app docker
 ensure app firefox
