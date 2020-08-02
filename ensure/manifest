@@ -12,6 +12,7 @@ ensure package git
 ensure package htop
 ensure package httpie
 ensure package jq
+ensure package kubectx
 ensure package libxml2
 ensure package libxslt
 ensure package libyaml
