@@ -6,9 +6,12 @@ ensure package asdf
 ensure package bat
 ensure package csvkit
 ensure package ctags
+ensure package coreutils
 ensure package diff-so-fancy
 ensure package fd
+ensure package gh
 ensure package git
+ensure package gnu-time
 ensure package htop
 ensure package httpie
 ensure package jq
