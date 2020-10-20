@@ -63,6 +63,7 @@
   insteadOf = gh:
 [core]
   excludesfile = ~/.gitignore_global
+	attributesfile = /Users/kito/.gitattributes
 [include]
   path = /Users/kito/dev/netlify/dev-bootstrap/config.include
 [credential]
