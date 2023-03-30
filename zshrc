@@ -43,7 +43,7 @@ HIST_IGNORE_SPACE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew docker gem git heroku mix macos zsh-syntax-highlighting)
+plugins=(asdf brew docker gem git heroku mix macos zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
