@@ -24,7 +24,7 @@ ZSH_THEME="kito"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment following line if you want to disable command autocorrection
 # DISABLE_CORRECTION="true"
@@ -37,13 +37,12 @@ COMPLETION_WAITING_DOTS="true"
 # much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-
 HIST_IGNORE_SPACE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(asdf brew docker gem git heroku mix macos zsh-syntax-highlighting)
+plugins=(asdf brew docker aws gitfast macos) # zsh-syntax-highlighting
 
 source $ZSH/oh-my-zsh.sh
 
@@ -57,7 +56,6 @@ fi
 export GOPATH=$HOME/go
 
 export PATH=/usr/local/sbin:$PATH
-export PATH=/usr/local/heroku/bin:$PATH
 export PATH=~/.bin:$PATH
 export PATH=./node_modules/.bin:$PATH
 export PATH=".git/safe/../../bin:$PATH"
@@ -78,6 +76,7 @@ fi
 # Customize to your needs...
 export EDITOR="vim"
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
+export BAT_THEME="Solarized (dark)"
 
 #fixing strange git errors
 export LC_CTYPE=en_US.UTF-8
@@ -86,6 +85,4 @@ export LC_ALL=en_US.UTF-8
 if [ -f ~/.secrets ]; then
     . ~/.secrets
 fi
-
-# The next line updates PATH for Netlify's Git Credential Helper.
-if [ -f '/Users/kito/.netlify/helper/path.zsh.inc' ]; then source '/Users/kito/.netlify/helper/path.zsh.inc'; fi
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
