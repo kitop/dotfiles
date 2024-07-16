@@ -1,8 +1,0 @@
-" Language server for code completion and go to definition
-
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:coc_global_extensions = ['coc-solargraph', 'coc-json']
-
-nmap <silent> gd <Plug>(coc-definition)
-
-" vim:ft=vim

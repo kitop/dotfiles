@@ -1,5 +1,0 @@
-" golang plugins
-
-Plug 'govim/govim'
-
-" vim:ft=vim
