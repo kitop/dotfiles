@@ -6,6 +6,7 @@ alias gb='git branch'
 alias gc='git commit'
 alias gcm='git commit -m'
 alias gca="git commit --amend"
+alias gcf="git commit --amend --no-edit"
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias gfa='git fetch --all'
@@ -24,6 +25,10 @@ _git_checkout_pull_request() {
 }
 alias gcopr=_git_checkout_pull_request
 
+# kubernetes
+alias k=kubectl
+complete -o default -F __start_kubectl k
+
 # Rails
 alias bx='bundle exec'
 
@@ -37,6 +42,8 @@ alias ping='prettyping --nolegend'
 alias top="sudo htop"
 alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 alias help='tldr'
+
+alias sed=gsed
 
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 
