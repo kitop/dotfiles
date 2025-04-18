@@ -25,9 +25,18 @@ _git_checkout_pull_request() {
 }
 alias gcopr=_git_checkout_pull_request
 
+br() {
+  local input="$*"
+  git co -b kp/${input// /-}
+}
+alias kp=br
+
 # kubernetes
 alias k=kubectl
 complete -o default -F __start_kubectl k
+
+alias kctx=kubectx
+alias kns=kubens
 
 # Rails
 alias bx='bundle exec'
@@ -66,3 +75,6 @@ man() {
 }
 
 alias flushdns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
+
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+

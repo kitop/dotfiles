@@ -42,11 +42,10 @@ HIST_IGNORE_SPACE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(asdf brew docker aws gitfast macos) # zsh-syntax-highlighting
+plugins=(brew docker aws gitfast macos) # zsh-syntax-highlighting
 
 source $ZSH/oh-my-zsh.sh
 
-. $(brew --prefix asdf)/libexec/asdf.sh
 # rbenv
 if [ -d ~/.rbenv ]; then
   export PATH=$HOME/.rbenv/bin:$PATH
@@ -54,7 +53,9 @@ if [ -d ~/.rbenv ]; then
 fi
 
 export GOPATH=$HOME/go
+export ASDF_DATA_DIR=/Users/kito/.asdf
 
+export PATH="$ASDF_DATA_DIR/shims:$PATH"
 export PATH=/usr/local/sbin:$PATH
 export PATH=~/.bin:$PATH
 export PATH=./node_modules/.bin:$PATH
@@ -86,3 +87,4 @@ if [ -f ~/.secrets ]; then
     . ~/.secrets
 fi
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+eval "$(atuin init zsh)"
