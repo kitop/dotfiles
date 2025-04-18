@@ -32,26 +32,40 @@
   ctags = "!.git/hooks/ctags"
   fixup = "commit --amend --no-edit"
 
+[column]
+  ui = auto
+[tag]
+  sort = version:refname
+[diff]
+  algorithm = histogram
+  colorMoved = plain
+  mnemonicPrefix = true
+  renames = true
 [branch]
   autosetuprebase = always
+  sort = -committerdate
 [commit]
   template = ~/.gitmessage
 [help]
-  autocorrect = 1
+  autocorrect = prompt
 [fetch]
   prune = true
+  pruneTags = true
+  all = true
 [merge]
-  conflictstyle = diff3
+  conflictstyle = zdiff3
 [push]
   # Push current branch even if you've never pushed it before
   default = current
   followTags = true
+  autoSetupRemote = true
+[pull]
+  rebase = true
 [rerere]
-  enabled = 1
+  enabled = true
+  autoupdate = true
 [status]
   showUntrackedFiles = all
-#[transfer]
-#  fsckobjects = true
 
 [url "git@heroku.com:"]
   insteadOf = heroku:
@@ -61,15 +75,16 @@
 [url "git://github.com/"]
   # Read-only
   insteadOf = gh:
+[url "ssh://git@github.com/"]
+  insteadOf = https://github.com/
 [core]
   excludesfile = ~/.gitignore_global
-	attributesfile = /Users/kito/.gitattributes
-[include]
-  path = /Users/kito/dev/netlify/dev-bootstrap/config.include
+  attributesfile = /Users/kito/.gitattributes
 [credential]
-	helper = store
+  helper = store
 [init]
-	templatedir = ~/.git_templates
+  defaultBranch = main
+  templatedir = ~/.git_templates
 
 # This next lines include Netlify's Git Credential Helper configuration in your Git configuration.
 [include]
