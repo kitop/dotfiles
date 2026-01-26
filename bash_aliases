@@ -25,15 +25,15 @@ _git_checkout_pull_request() {
 }
 alias gcopr=_git_checkout_pull_request
 
-br() {
+kp() {
   local input="$*"
   git co -b kp/${input// /-}
 }
-alias kp=br
 
 # kubernetes
 alias k=kubectl
-complete -o default -F __start_kubectl k
+# Note: kubectl completion is lazy-loaded in zshrc for faster startup
+# The 'k' alias will also get completion once kubectl is used
 
 alias kctx=kubectx
 alias kns=kubens
@@ -78,3 +78,4 @@ alias flushdns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 
+. ~/dotfiles/clickhouse_aliases.sh
