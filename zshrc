@@ -1,3 +1,5 @@
+zmodload zsh/zprof
+
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
@@ -39,18 +41,16 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 HIST_IGNORE_SPACE="true"
 
+# Skip verification for compinit (speeds up significantly by avoiding compaudit)
+ZSH_DISABLE_COMPFIX="true"
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew docker aws gitfast macos) # zsh-syntax-highlighting
+# Removed slow plugins: brew, docker, aws (they add many compdef calls)
+plugins=(gitfast macos) # zsh-syntax-highlighting
 
 source $ZSH/oh-my-zsh.sh
-
-# rbenv
-if [ -d ~/.rbenv ]; then
-  export PATH=$HOME/.rbenv/bin:$PATH
-  eval "$(rbenv init - zsh)"
-fi
 
 export GOPATH=$HOME/go
 export ASDF_DATA_DIR=/Users/kito/.asdf
@@ -60,6 +60,7 @@ export PATH=/usr/local/sbin:$PATH
 export PATH=~/.bin:$PATH
 export PATH=./node_modules/.bin:$PATH
 export PATH=".git/safe/../../bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 export PATH=$PATH:$GOPATH/bin
 export PATH="$PATH:/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin"
@@ -86,5 +87,18 @@ export LC_ALL=en_US.UTF-8
 if [ -f ~/.secrets ]; then
     . ~/.secrets
 fi
-[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+
+# Lazy-load kubectl completion (only when kubectl is first used)
+# This saves ~50-100ms on shell startup
+if [[ $commands[kubectl] ]]; then
+  kubectl() {
+    unfunction kubectl
+    source <(command kubectl completion zsh)
+    kubectl "$@"
+  }
+fi
+
 eval "$(atuin init zsh)"
+
+zprof
+
