@@ -1,5 +1,3 @@
-zmodload zsh/zprof
-
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
@@ -44,12 +42,36 @@ HIST_IGNORE_SPACE="true"
 # Skip verification for compinit (speeds up significantly by avoiding compaudit)
 ZSH_DISABLE_COMPFIX="true"
 
+# Tell oh-my-zsh to use our completion dump location (we'll handle compinit ourselves)
+ZSH_COMPDUMP="$HOME/.zcompdump"
+
+# Enable async git status updates (makes prompt faster)
+zstyle ':omz:alpha:lib:git' async-prompt yes
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Removed slow plugins: brew, docker, aws (they add many compdef calls)
 plugins=(gitfast macos) # zsh-syntax-highlighting
 
+# Speed up compinit by only regenerating completion dump once per day
+# This saves 200ms+ by skipping completion system regeneration on every shell startup
+autoload -Uz compinit
+setopt EXTENDEDGLOB
+if [[ -n $HOME/.zcompdump(#qN.mh+24) ]]; then
+  # Dump is old (>24 hours), regenerate it
+  compinit
+  # Compile the dump file for faster loading
+  if [[ -s "$HOME/.zcompdump" && (! -s "$HOME/.zcompdump.zwc" || "$HOME/.zcompdump" -nt "$HOME/.zcompdump.zwc") ]]; then
+    zcompile "$HOME/.zcompdump"
+  fi
+else
+  # Dump is fresh, skip the verification check (-C flag)
+  compinit -C
+fi
+unsetopt EXTENDEDGLOB
+
+# Oh-my-zsh will detect compinit is already loaded and skip calling it again
 source $ZSH/oh-my-zsh.sh
 
 export GOPATH=$HOME/go
@@ -99,6 +121,3 @@ if [[ $commands[kubectl] ]]; then
 fi
 
 eval "$(atuin init zsh)"
-
-zprof
-
