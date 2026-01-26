@@ -4,8 +4,11 @@ tags
 .npmrc
 .tool-versions
 elm-stuff
-log
+./log
 config/database.yml
 .env
 .solargraph.yml
 node_modules
+.claude/settings.local.json
+CLAUDE.local.md
+
