@@ -42,10 +42,8 @@ alias kns=kubens
 alias bx='bundle exec'
 
 #other
-alias fix-camera='sudo killall VDCAssistant'
 alias irb='irb --readline -r irb/completion'
-alias v='vim -p'
-alias vi='vim'
+alias v='nvim'
 alias cat='bat'
 alias ping='prettyping --nolegend'
 alias top="sudo htop"
@@ -63,19 +61,17 @@ alias copy='pbcopy; pbpaste'
 alias bell='echo \\a'
 
 man() {
-    env \
-      LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-      LESS_TERMCAP_md=$(printf "\e[1;31m") \
-      LESS_TERMCAP_me=$(printf "\e[0m") \
-      LESS_TERMCAP_se=$(printf "\e[0m") \
-      LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-      LESS_TERMCAP_ue=$(printf "\e[0m") \
-      LESS_TERMCAP_us=$(printf "\e[1;32m") \
-      man "$@"
+  env \
+    LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+    LESS_TERMCAP_md=$(printf "\e[1;31m") \
+    LESS_TERMCAP_me=$(printf "\e[0m") \
+    LESS_TERMCAP_se=$(printf "\e[0m") \
+    LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+    LESS_TERMCAP_ue=$(printf "\e[0m") \
+    LESS_TERMCAP_us=$(printf "\e[1;32m") \
+    man "$@"
 }
 
 alias flushdns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
-
-alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 
 . ~/dotfiles/clickhouse_aliases.sh
