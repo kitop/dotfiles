@@ -1,7 +1,0 @@
-" Git bindings
-
-Plug 'tpope/vim-fugitive'
-
-set tags^=./.git/tags;
-
-" vim:ft=vim

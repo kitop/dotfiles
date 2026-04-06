@@ -1,5 +1,0 @@
-" Vim configuration files for Elixir http://elixir-lang.org/
-
-Plug 'elixir-lang/vim-elixir'
-
-" vim:ft=vim

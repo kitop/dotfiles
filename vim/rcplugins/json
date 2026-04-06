@@ -1,5 +1,0 @@
-" JSON - Syntax highlighting for JSON
-
-Plug 'elzr/vim-json'
-
-" vim:ft=vim
